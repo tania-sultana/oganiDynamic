@@ -216,7 +216,8 @@
             </div>
         </div>
     </div>
-    <div class="d-flex flex-column p-5 contact mt-4 " style="background-image: url('{{ asset('assets/images/contact/contact.jpg') }}'); height: 18vh;">
+    
+    <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
 
         <h1 class="heading fw-bold text-white text-center">Organi Shop</h1>
         <div class="d-flex justify-content-center text-white gap-2">

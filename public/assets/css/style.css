@@ -312,8 +312,9 @@ textarea {
 
 /* ------------------------------contact section----------------------------- */
 .contact {
-    /* background-image: url('{{ asset('assets/images/contact/contact.jpg') }}');
-    background-size: cover; */
+    /* background-image: url('{{ asset('assets/images/contact/contact.jpg') }}'); */
+    background-image: url("../images/contact/contact.jpg") !important;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 30vh;
 }
@@ -321,7 +322,7 @@ textarea {
     background-image: url("../images/details-hero.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 35vh;
+    height: 20vh;
 }
 
 .send {

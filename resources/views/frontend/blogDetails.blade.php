@@ -216,7 +216,7 @@
         </div>
     </div>
 
-  <div class="d-flex flex-column p-5 contact-blog mt-4 ">
+  <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center mb-4">The Moment You Need To Remove Garlic From The Menu</h1>
         <div class="d-flex justify-content-center text-white gap-2">
             <a href="index.html" class=" text-decoration-none text-white text-center">By Michael Scofield<span class="px-3">|</span>January 14, 2019<span class="px-3">|</span> 8 Comments</a>

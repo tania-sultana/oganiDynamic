@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
 @section('content')
+
  <div class="container">
         <div class="wrapper">
             <!-- -------------------------second nav section------------------ -->
@@ -93,7 +94,7 @@
                         <div class="container-fluid ">
                             <ul class="navbar-nav d-flex flex-row gap-5">
                                 <li class="nav-item">
-                                    <a class="nav-link  para text-dark fw-bold" aria-current="page"
+                                    <a class="nav-link active para text-dark fw-bold" aria-current="page"
                                         href="{{ route('home') }}">HOME</a>
                                 </li>
                                 <li class="nav-item">
@@ -116,7 +117,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active para text-dark fw-bold"
+                                    <a class="nav-link para text-dark fw-bold"
                                         href="{{ route('ogani.blog') }}">BLOG</a>
                                 </li>
                                 <li class="nav-item">
