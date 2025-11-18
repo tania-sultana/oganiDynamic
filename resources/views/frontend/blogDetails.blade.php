@@ -252,7 +252,7 @@
                     <h3 class="fw-bold my-4 ">Recent News</h3>
                     <div class="d-flex gap-3 mb-2">
                         <div class="image">
-                            <img src="images/blog/sr-1.jpg" alt="">
+                            <img src="{{asset('assets/images/blog/sr-1.jpg')}}" alt="">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="mb-0 fw-bold">09 Kinds Of Vegetables </p>
@@ -262,7 +262,7 @@
                     </div>
                     <div class="d-flex gap-3 mb-2">
                         <div class="image">
-                            <img src="images/blog/sr-2.jpg" alt="">
+                            <img src="{{asset('assets/images/blog/sr-2.jpg')}}" alt="">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="mb-0 fw-bold">Tips You To Balance </p>
@@ -272,7 +272,7 @@
                     </div>
                     <div class="d-flex gap-3">
                         <div class="image">
-                            <img src="images/blog/sr-3.jpg" alt="">
+                            <img src="{{asset('assets/images/blog/sr-3.jpg')}}" alt="">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="mb-0 fw-bold">4 Principles Help You Lose </p>
@@ -297,7 +297,7 @@
 
             <div class="col-lg-8 col-md-7 order-md-1 order-1">
                 <div class="">
-                    <img src="images/blogDetails/details-pic.jpg" alt="" class="w-100">
+                    <img src="{{asset('assets/images/blogDetails/details-pic.jpg')}}" alt="" class="w-100">
                     <p class="text-secondary py-4">
                         Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                         Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit,
@@ -319,7 +319,7 @@
                     <div class="row mt-5">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="d-flex gap-3 mb-5">
-                                <img src="images/blogDetails/details-author.jpg" class="rounded-circle" alt="author">
+                                <img src="{{asset('assets/images/blogDetails/details-author.jpg')}}" class="rounded-circle" alt="author">
                                 <div class="d-flex flex-column justify-content-center ">
                                     <p class="fw-bold mb-0">Michael Scofield</p>
                                     <p class="text-secondary mb-0">Admin</p>
@@ -355,7 +355,7 @@
         </div>
         <div class="row mb-5">
             <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
-                <img src="images/blog/blog-1.jpg" class="w-100 " alt="ban1">
+                <img src="{{asset('assets/images/blog/blog-1.jpg')}}" class="w-100 " alt="ban1">
                 <ul class="list-unstyled d-flex gap-3 pt-4 ">
                     <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
                     </li>
@@ -367,7 +367,7 @@
                     quaerat</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
-                <img src="images/blog/blog-2.jpg" class="w-100" alt="ban1">
+                <img src="{{asset('assets/images/blog/blog-2.jpg')}}" class="w-100" alt="ban1">
                 <ul class="list-unstyled d-flex gap-3 pt-4 ">
                     <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
                     </li>
@@ -380,7 +380,7 @@
 
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6 ">
-                <img src="images/blog/blog-3.jpg" class="w-100" alt="ban1">
+                <img src="{{asset('assets/images/blog/blog-3.jpg')}}" class="w-100" alt="ban1">
                 <ul class="list-unstyled d-flex gap-3 pt-4 ">
                     <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
                     </li>

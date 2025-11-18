@@ -8,7 +8,9 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $user = auth('web')->user();
+
+        return view('frontend.index', compact('user'));
     }
     public function shop()
     {
@@ -38,4 +40,9 @@ class FrontendController extends Controller
     {
         return view('frontend.checkOut');
     }
+    public function login()
+    {
+        return view('auth.login');
+    }
+
 }

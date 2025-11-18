@@ -45,6 +45,7 @@
     <script src="{{asset('assets/js/shop-details.js')}}"></script>
     <script src="{{asset('assets/js/shop.js')}}"></script>
     <script src="{{asset('assets/js/carousel.js')}}"></script>
+    <script src="{{asset('assets/js/success.js')}}"></script>
 
 
 </body>

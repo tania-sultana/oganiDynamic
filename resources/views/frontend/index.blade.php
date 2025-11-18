@@ -221,7 +221,7 @@
             <!-- ------------------------hero section---------------------- -->
             <div class="row py-2 mb-5">
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    < </div>
+                     </div>
                         <div class="col-lg-9 col-md-12 col-sm-12">
                             <div class="d-flex flex-column p-5 hero mt-4" style="background-image: url('{{ asset('assets/images/banner1.jpg') }}'); background-size: cover; background-repeat: no-repeat; height: 50vh" >
                                 <p class="text fw-bold mt-4 mb-2 para">FRUIT FRESH</p>

@@ -751,6 +751,15 @@ th{
     line-height: 30px;
 }
 
+/* -----------------login-------------- */
+.eye{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(50% , 50%);
+    cursor: pointer;
+}
+
 /* ---------------------------responsive--------------------- */
  #barToggle {
     display: none;

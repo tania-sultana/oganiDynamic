@@ -1,16 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::controller(App\Http\Controllers\FrontendController::class)->group(function () {
-
-// });
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/ogani/shop', 'shop')->name('ogani.shop');
@@ -20,5 +15,21 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/ogani/shoppingCart', 'shoppingCart')->name('ogani.shoppingCart');
     Route::get('/ogani/blogDetails', 'blogDetails')->name('ogani.blogDetails');
     Route::get('/ogani/checkout', 'checkout')->name('ogani.checkOut');
+    Route::get('/login', 'login')->name('login.create');
+
 
 });
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/register/create', 'createRegister')->name('register.create');
+    Route::get('/register/store', 'storeRegister')->name('register.store');
+
+    Route::post('/login', 'login')->name('user.login');
+
+    Route::get('/logout', 'logout')->name('user.logout');
+
+});
+
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        });
