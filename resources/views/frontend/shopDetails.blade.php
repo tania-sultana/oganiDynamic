@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
-@section('contact')
+
+@section('content')
  <div class="container">
         <div class="wrapper">
             <!-- -------------------------second nav section------------------ -->
@@ -105,7 +106,7 @@
                                         <li><a class="nav-link active text-decoration-none text-white para"
                                                 href="{{ route('ogani.shopDetails') }}">Shop
                                                 Details</a></li>
-                                        <li><a class="nav-link text-decoration-none text-white para"
+                                        <li><a class="nav-link  text-decoration-none text-white para"
                                                 href="{{ route('ogani.shoppingCart') }}">Shopping
                                                 Cart</a></li>
                                         <li><a class="nav-link text-decoration-none text-white para"
@@ -215,7 +216,7 @@
             </div>
         </div>
     </div>
-<div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
+   <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center">Vegetable’s Package</h1>
         <div class="d-flex justify-content-center text-white gap-2">
             <a href="index.html" class=" text-decoration-none text-white fw-bold">Home</a>
@@ -223,31 +224,33 @@
             <span>- Shop Details</span>
         </div>
     </div>
-    <!-- --------------------left side------------------------- -->
+
     <div class="container my-5">
+
+        <div class="container my-5">
         <div class="row mb-4">
             <div class="col-lg-6 col-md-6 col-sm-12 ">
                 <div class="">
-                    <img src="images/pages/product-details-1.jpg" class="product-hero" alt="bnr">
+                    <img src="{{asset('assets/images/pages/product-details-1.jpg')}}" class="product-hero" alt="bnr">
                     <div class="swiper categorySwiper mb-3">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide text-center position-relative">
-                                <img src="images/carousel/cat-1.jpg" alt="Meat" class="img-fluid mb-3">
+                                <img src="{{asset('assets/images/carousel/cat-1.jpg')}}" alt="Meat" class="img-fluid mb-3">
                             </div>
 
                             <div class="swiper-slide text-center position-relative">
-                                <img src="images/carousel/cat-2.jpg" alt="Meat" class="img-fluid mb-3">
+                                <img src="{{asset('assets/images/carousel/cat-2.jpg')}}" alt="Meat" class="img-fluid mb-3">
                             </div>
 
                             <div class="swiper-slide text-center position-relative">
-                                <img src="images/carousel/cat-3.jpg" alt="Meat" class="img-fluid mb-3">
+                                <img src="{{asset('assets/images/carousel/cat-3.jpg')}}" alt="Meat" class="img-fluid mb-3">
                             </div>
 
                             <div class="swiper-slide text-center">
-                                <img src="images/carousel/cat-4.jpg" alt="Fresh Fruit" class="img-fluid mb-3">
+                                <img src="{{asset('assets/images/carousel/cat-4.jpg')}}" alt="Fresh Fruit" class="img-fluid mb-3">
                             </div>
                             <div class="swiper-slide text-center">
-                                <img src="images/carousel/cat-5.jpg" alt="Fresh Fruit" class="img-fluid mb-3">
+                                <img src="{{asset('assets/images/carousel/cat-5.jpg')}}" alt="Fresh Fruit" class="img-fluid mb-3">
                             </div>
                         </div>
 
@@ -383,7 +386,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product-card text-center interactive  ">
                     <div class="position-relative mb-4 ">
-                        <img src="images/product/feature-1.jpg" class="w-100" alt="Diced Meat">
+                        <img src="{{asset('assets/images/product/feature-1.jpg')}}" class="w-100" alt="Diced Meat">
                         <div class="hover-icons">
                             <button class="icon-btn"><i class="fas fa-heart"></i></button>
                             <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -398,7 +401,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product-card  text-center interactive">
                     <div class="position-relative mb-4 ">
-                        <img src="images/product/feature-2.jpg" class="w-100" alt="Bananas">
+                        <img src="{{asset('assets/images/product/feature-2.jpg')}}" class="w-100" alt="Bananas">
                         <div class="hover-icons">
                             <button class="icon-btn"><i class="fas fa-heart"></i></button>
                             <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -413,7 +416,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product-card text-center interactive">
                     <div class="position-relative mb-4">
-                        <img src="images/product/feature-3.jpg" class="w-100" alt="Guava">
+                        <img src="{{asset('assets/images/product/feature-3.jpg')}}" class="w-100" alt="Guava">
                         <div class="hover-icons">
                             <button class="icon-btn"><i class="fas fa-heart"></i></button>
                             <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -428,7 +431,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product-card text-center interactive w-100">
                     <div class="position-relative mb-4">
-                        <img src="images/product/feature-4.jpg" class="w-100" alt="Watermelon">
+                        <img src="{{asset('assets/images/product/feature-4.jpg')}}" class="w-100" alt="Watermelon">
                         <div class="hover-icons">
                             <button class="icon-btn"><i class="fas fa-heart"></i></button>
                             <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -442,4 +445,6 @@
         </div>
     </div>
 
+
+    </div>
 @endsection

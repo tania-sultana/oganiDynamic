@@ -242,7 +242,7 @@
                 <tr class="border-bottom ">
                     <td>
                         <div class="d-flex firstTd py-4">
-                            <img src="images/shopping-cart/cart-1.jpg" class="" alt="c1">
+                            <img src="{{asset('assets/images/shopping-cart/cart-1.jpg')}}" class="" alt="c1">
                             <p class=" d-flex align-items-md-center ps-1 mb-0"> Vegetable’s Package</p>
                         </div>
                     </td>
@@ -268,7 +268,7 @@
                 <tr class="border-bottom ">
                     <td>
                         <div class="d-flex firstTd py-4">
-                            <img src="images/shopping-cart/cart-2.jpg" class="" alt="c1">
+                            <img src="{{asset('assets/images/shopping-cart/cart-2.jpg')}}" class="" alt="c1">
                             <p class=" d-flex align-items-md-center ps-1 mb-0"> Fresh Garden Vegetablee</p>
                         </div>
                     </td>
@@ -294,7 +294,7 @@
                 <tr class="border-bottom ">
                     <td>
                         <div class="d-flex firstTd py-4">
-                            <img src="images/shopping-cart/cart-3.jpg" class="" alt="c1">
+                            <img src="{{asset('assets/images/shopping-cart/cart-3.jpg')}}" class="" alt="c1">
                             <p class=" d-flex align-items-md-center ps-1 mb-0"> Organic Bananas</p>
                         </div>
                     </td>

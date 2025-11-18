@@ -216,7 +216,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
 
         <h1 class="heading fw-bold text-white text-center">Organi Shop</h1>
@@ -320,45 +320,21 @@
             <div class="prod-slider-track">
                 <div class="prod-slider-column">
                     <div class="prod-slider-item">
-                        <img src="images/latestP/lp-1.jpg" alt="Spinach Greens">
+                        <img src="{{asset('assets/images/latestP/lp-1.jpg')}}" alt="Spinach Greens">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
                         </div>
                     </div>
                     <div class="prod-slider-item">
-                        <img src="images/latestP/lp-2.jpg" alt="Bell Peppers">
+                        <img src="{{asset('assets/images/latestP/lp-2.jpg')}}" alt="Bell Peppers">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
                         </div>
                     </div>
                     <div class="prod-slider-item">
-                        <img src="images/latestP/lp-3.jpg" alt="Fried Chicken">
-                        <div class="prod-details">
-                            <p>Crab Pool Security</p>
-                            <p class="prod-price">$30.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="prod-slider-column">
-                    <div class="prod-slider-item">
-                        <img src="images/product/feature-7.jpg" alt="Bottled Water">
-                        <div class="prod-details">
-                            <p>Crab Pool Security</p>
-                            <p class="prod-price">$30.00</p>
-                        </div>
-                    </div>
-                    <div class="prod-slider-item">
-                        <img src="images/product/feature-5.jpg" alt="Red Grapes">
-                        <div class="prod-details">
-                            <p>Crab Pool Security</p>
-                            <p class="prod-price">$30.00</p>
-                        </div>
-                    </div>
-                    <div class="prod-slider-item">
-                        <img src="images/product/feature-4.jpg" alt="Fresh Strawberries">
+                        <img src="{{asset('assets/images/latestP/lp-3.jpg')}}" alt="Fried Chicken">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
@@ -368,21 +344,45 @@
 
                 <div class="prod-slider-column">
                     <div class="prod-slider-item">
-                        <img src="images/product/feature-3.jpg" alt="Canned Tuna">
+                        <img src="{{asset('assets/images/product/feature-7.jpg')}}" alt="Bottled Water">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
                         </div>
                     </div>
                     <div class="prod-slider-item">
-                        <img src="images/product/feature-2.jpg" alt="Bread Loaf">
+                        <img src="{{asset('assets/images/product/feature-5.jpg')}}" alt="Red Grapes">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
                         </div>
                     </div>
                     <div class="prod-slider-item">
-                        <img src="images/product/feature-1.jpg" alt="Coffee Beans">
+                        <img src="{{asset('assets/images/product/feature-4.jpg')}}" alt="Fresh Strawberries">
+                        <div class="prod-details">
+                            <p>Crab Pool Security</p>
+                            <p class="prod-price">$30.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prod-slider-column">
+                    <div class="prod-slider-item">
+                        <img src="{{asset('assets/images/product/feature-3.jpg')}}" alt="Canned Tuna">
+                        <div class="prod-details">
+                            <p>Crab Pool Security</p>
+                            <p class="prod-price">$30.00</p>
+                        </div>
+                    </div>
+                    <div class="prod-slider-item">
+                        <img src="{{asset('assets/images/product/feature-2.jpg')}}" alt="Bread Loaf">
+                        <div class="prod-details">
+                            <p>Crab Pool Security</p>
+                            <p class="prod-price">$30.00</p>
+                        </div>
+                    </div>
+                    <div class="prod-slider-item">
+                        <img src="{{asset('assets/images/product/feature-1.jpg')}}" alt="Coffee Beans">
                         <div class="prod-details">
                             <p>Crab Pool Security</p>
                             <p class="prod-price">$30.00</p>
@@ -398,7 +398,7 @@
                     <div class="carousel-track">
                         <div class="product-card text-center interactive" data-category="oranges">
                             <div class="position-relative mb-4">
-                                <img src="images/product/feature-1.jpg" alt="Burger">
+                                <img src="{{asset('assets/images/product/feature-1.jpg')}}" alt="Burger">
                                 <div class="hover-icons">
                                     <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                     <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -417,7 +417,7 @@
 
                         <div class="product-card text-center interactive" data-category="dried-fruit">
                             <div class="position-relative mb-4">
-                                <img src="images/product/feature-2.jpg" alt="Grapes">
+                                <img src="{{asset('assets/images/product/feature-2.jpg')}}" alt="Grapes">
                                 <div class="hover-icons">
                                     <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                     <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -436,7 +436,7 @@
 
                         <div class="product-card text-center interactive" data-category="dried-fruit">
                             <div class="position-relative mb-4">
-                                <img src="images/product/feature-3.jpg" alt="Fruit Mix">
+                                <img src="{{asset('assets/images/product/feature-3.jpg')}}" alt="Fruit Mix">
                                 <div class="hover-icons">
                                     <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                     <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -455,7 +455,7 @@
 
                         <div class="product-card text-center interactive" data-category="vegetables">
                             <div class="position-relative mb-4">
-                                <img src="images/product/feature-4.jpg" alt="Vegetables">
+                                <img src="{{asset('assets/images/product/feature-4.jpg')}}" alt="Vegetables">
                                 <div class="hover-icons">
                                     <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                     <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -510,7 +510,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive  ">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/feature-1.jpg" class="w-100" alt="Diced Meat">
+                                    <img src="{{asset('assets/images/product/feature-1.jpg')}}" class="w-100" alt="Diced Meat">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -525,7 +525,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card  text-center interactive">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/feature-2.jpg" class="w-100" alt="Bananas">
+                                    <img src="{{asset('assets/images/product/feature-2.jpg')}}" class="w-100" alt="Bananas">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -540,7 +540,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/feature-3.jpg" class="w-100" alt="Guava">
+                                    <img src="{{asset('assets/images/product/feature-3.jpg')}}" class="w-100" alt="Guava">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -555,7 +555,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive w-100">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/feature-4.jpg" class="w-100" alt="Watermelon">
+                                    <img src="{{asset('assets/images/product/feature-4.jpg')}}" class="w-100" alt="Watermelon">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -569,7 +569,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive  ">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/feature-5.jpg" class="w-100" alt="Diced Meat">
+                                    <img src="{{asset('assets/images/product/feature-5.jpg')}}" class="w-100" alt="Diced Meat">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -584,7 +584,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card  text-center interactive">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/feature-6.jpg" class="w-100" alt="Bananas">
+                                    <img src="{{asset('assets/images/product/feature-6.jpg')}}" class="w-100" alt="Bananas">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -599,7 +599,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/feature-7.jpg" class="w-100" alt="Guava">
+                                    <img src="{{asset('assets/images/product/feature-7.jpg')}}" class="w-100" alt="Guava">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -614,7 +614,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive w-100">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/feature-8.jpg" class="w-100" alt="Watermelon">
+                                    <img src="{{asset('assets/images/product/feature-8.jpg')}}" class="w-100" alt="Watermelon">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -628,7 +628,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive  ">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/product-9.jpg" class="w-100" alt="Diced Meat">
+                                    <img src="{{asset('assets/images/product/product-9.jpg')}}" class="w-100" alt="Diced Meat">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -643,7 +643,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card  text-center interactive">
                                 <div class="position-relative mb-4 ">
-                                    <img src="images/product/product-10.jpg" class="w-100" alt="Bananas">
+                                    <img src="{{asset('assets/images/product/product-10.jpg')}}" class="w-100" alt="Bananas">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -658,7 +658,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/product-11.jpg" class="w-100" alt="Guava">
+                                    <img src="{{asset('assets/images/product/product-11.jpg')}}" class="w-100" alt="Guava">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -673,7 +673,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-card text-center interactive w-100">
                                 <div class="position-relative mb-4">
-                                    <img src="images/product/product-12.jpg" class="w-100" alt="Watermelon">
+                                    <img src="{{asset('assets/images/product/product-12.jpg')}}" class="w-100" alt="Watermelon">
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
