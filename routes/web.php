@@ -30,6 +30,10 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
-Route::middleware(['role:admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        });
+// Route::middleware(['role:admin'])->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+//         });
+
+
+        // admin routes include
+require base_path('routes/admin.php');

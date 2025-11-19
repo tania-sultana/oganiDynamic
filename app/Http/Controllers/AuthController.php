@@ -46,7 +46,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->hasRole('admin')) {
-                return to_route('dashboard.index')->with('success', 'Login successful!');
+                return to_route('admin.dashboard')->with('success', 'Login successful!');
             }
 
             // $request->session()->regenerate();
