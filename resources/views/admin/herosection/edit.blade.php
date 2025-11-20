@@ -20,63 +20,67 @@
                 </h5>
             </div>
 
-            <div class=" p-3">
+            <div class="p-3">
+
                 <div class="mt-3">
-                    <input label="Header" name="header" type="text" required
-                        value="{{ old('header', $herosection->header ?? '') }}" class="form-control" />
+                    <label for="header" class="form-label fw-bold">Header <span class="text-danger">*</span></label>
+                    <input id="header" name="header" type="text" class="form-control" required
+                        value="{{ old('header', $herosection->header ?? '') }}">
                     @error('header')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="mt-3">
-                    <input label="First Title" name="first_title" type="text" required
-                        value="{{ old('first_title', $herosection->first_title ?? '') }}" class="form-control" />
+                    <label for="first_title" class="form-label fw-bold">First Title <span
+                            class="text-danger">*</span></label>
+                    <input id="first_title" name="first_title" type="text" class="form-control" required
+                        value="{{ old('first_title', $herosection->first_title ?? '') }}">
                     @error('first_title')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="mt-3">
-                    <input label="Second Title" name="second_title" type="text" required
-                        value="{{ old('second_title', $herosection->second_title ?? '') }}" class="form-control" />
+                    <label for="second_title" class="form-label fw-bold">Second Title <span
+                            class="text-danger">*</span></label>
+                    <input id="second_title" name="second_title" type="text" class="form-control" required
+                        value="{{ old('second_title', $herosection->second_title ?? '') }}">
                     @error('second_title')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="mt-3">
-                    <input label="Short Description" name="short_description" type="text" required
-                        value="{{ old('short_description', $herosection->short_description ?? '') }}"
-                        class="form-control" />
+                    <label for="short_description" class="form-label fw-bold">Short Description <span
+                            class="text-danger">*</span></label>
+                    <input id="short_description" name="short_description" type="text" class="form-control" required
+                        value="{{ old('short_description', $herosection->short_description ?? '') }}">
                     @error('short_description')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
-
-                {{-- <div class="mt-3">
-                    <input label=" Button name" name="btn_name" type="text" required="true"
-                        :value="$herosection->btn_name" />
-                </div> --}}
                 <div class="mt-3">
-                    <input label="Button Name" name="btn_name" type="text" required
-                        value="{{ old('btn_name', $herosection->btn_name ?? '') }}" class="form-control" />
+                    <label for="btn_name" class="form-label fw-bold">Button Name <span class="text-danger">*</span></label>
+                    <input id="btn_name" name="btn_name" type="text" class="form-control" required
+                        value="{{ old('btn_name', $herosection->btn_name ?? '') }}">
                     @error('btn_name')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
-
                 <div class="mt-3">
-                    <input label="Button URL" name="btn_url" type="url" required
-                        value="{{ old('btn_url', $herosection->btn_url ?? '') }}" class="form-control" />
+                    <label for="btn_url" class="form-label fw-bold">Button URL <span class="text-danger">*</span></label>
+                    <input id="btn_url" name="btn_url" type="url" class="form-control" required
+                        value="{{ old('btn_url', $herosection->btn_url ?? '') }}">
                     @error('btn_url')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
             </div>
+
             <!--######## Thumbnail Information ##########-->
             {{-- <div class="row">
 
@@ -136,24 +140,9 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function previewFile(event, previewId) {
-                    const reader = new FileReader();
-                    reader.onload = function() {
-                        const output = document.getElementById(previewId);
-                        output.src = reader.result;
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            </script>
 
-
-
-
-
-
-            <div class="d-flex gap-3 justify-content-end align-items-center mb-3">
-                <a href="{{ route('admin.herosection.index') }}" class="btn btn-primary ">
+            <div class="d-flex gap-3 justify-content-end align-items-center mb-3 me-3">
+                <a href="{{ route('admin.herosection.index') }}" class="btn btn-lg btn-primary ">
                     {{ __('Reset') }}
                 </a>
 
@@ -163,3 +152,14 @@
             </div>
     </form>
 @endsection
+
+<script>
+    function previewFile(event, previewId) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById(previewId);
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>

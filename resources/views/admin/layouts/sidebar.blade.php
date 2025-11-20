@@ -32,15 +32,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('admin.product.index')}}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Testimonial</span>
+                    <span class="nav-link-text ms-1">Product</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('admin.blog.index')}}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Services</span>
+                    <span class="nav-link-text ms-1">Blog</span>
                 </a>
             </li>
             <li class="nav-item">

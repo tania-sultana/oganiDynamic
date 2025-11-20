@@ -4,7 +4,8 @@ use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSectionController;
-
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
 use PharIo\Manifest\AuthorCollection;
@@ -36,6 +37,25 @@ Route::prefix('/admin')->middleware(['web'])->name('admin.')->group(function () 
     Route::get('carousel/delete/{carousel}', 'destroy')->name('carousel.destroy');
  });
 
+ Route::controller(ProductController::class)->group(function () {
+    Route::get('product', 'index')->name('product.index');
+    Route::get('product/create', 'create')->name('product.create');
+    Route::post('product', 'store')->name('product.store');
+    Route::get('product/show/{product}', 'show')->name('product.show');
+    Route::get('product/edit/{product}', 'edit')->name('product.edit');
+    Route::put('product/update/{product}', 'update')->name('product.update');
+    Route::get('product/delete/{product}', 'destroy')->name('product.destroy');
+ });
+
+ Route::controller(BlogController::class)->group(function () {
+    Route::get('blog', 'index')->name('blog.index');
+    Route::get('blog/create', 'create')->name('blog.create');
+    Route::post('blog', 'store')->name('blog.store');
+    Route::get('blog/show/{blog}', 'show')->name('blog.show');
+    Route::get('blog/edit/{blog}', 'edit')->name('blog.edit');
+    Route::put('blog/update/{blog}', 'update')->name('blog.update');
+    Route::get('blog/delete/{blog}', 'destroy')->name('blog.destroy');
+ });
 
 
 

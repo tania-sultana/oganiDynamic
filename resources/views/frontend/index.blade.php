@@ -571,7 +571,7 @@
                                         </div>
 
                                         <div class="prod-slider-item">
-                                            <img src="images/product/product-12.jpg" alt="Review 3">
+                                            <img src="{{asset('assets/images/product/product-12.jpg')}}" alt="Review 3">
                                             <div class="prod-details">
                                                 <p>Whole Milk Gallon</p>
                                                 <p class="prod-price">$6.00</p>

@@ -22,7 +22,7 @@ class Carousel extends Model
     }
     public function thumbnail(): Attribute
     {
-        $url = asset('assets/images/banner.jpg');
+        $url = asset('assets/images/default.jpg');
         if  ($this->media && Storage::exists($this->media->src)) {
             $url = Storage::url($this->media->src);
         }

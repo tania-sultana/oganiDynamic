@@ -22,13 +22,20 @@
             </div>
 
             <div class=" p-3">
+                
                 <div class="mt-3">
-                    <input label="Header" name="header" type="text" required
-                        value="{{ old('header', $carousel->header ?? '') }}" class="form-control" />
+                    <label for="header" class="form-label fw-bold">
+                        Header <span class="text-danger">*</span>
+                    </label>
+
+                    <input id="header" name="header" type="text" class="form-control" required
+                        value="{{ old('header', $carousel->header ?? '') }}">
+
                     @error('header')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
 
             </div>
             <!--######## Thumbnail Information ##########-->
@@ -65,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="d-flex gap-3 justify-content-end align-items-center mb-3">
+            <div class="d-flex gap-3 justify-content-end align-items-center mb-3 me-3">
                 <a href="{{ route('admin.carousel.index') }}" class="btn btn-primary ">
                     {{ __('Reset') }}
                 </a>
@@ -76,13 +83,13 @@
             </div>
     </form>
 @endsection
- <script>
-                function previewFile(event, previewId) {
-                    const reader = new FileReader();
-                    reader.onload = function() {
-                        const output = document.getElementById(previewId);
-                        output.src = reader.result;
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            </script>
+<script>
+    function previewFile(event, previewId) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById(previewId);
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>

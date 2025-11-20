@@ -28,7 +28,7 @@ class HeroSection extends Model
     }
     public function thumbnail(): Attribute
     {
-        $url = asset('assets/imgages/banner.jpg');
+        $url = asset('assets/imgages/default.jpg');
         if  ($this->media && Storage::exists($this->media->src)) {
             $url = Storage::url($this->media->src);
         }

@@ -23,14 +23,6 @@ class CarouselController extends Controller
     }
     public function store(CarouselRequest $request)
     {
-        // $data = new Carousel();
-        // $data->header = $request->header;
-        // if ($request->hasFile('thumbnail')) {
-        //     $media = MediaRepository::storeByRequest($request->thumbnail, 'carousel');
-        //     $data->media_id = $media->id;
-        // }
-        // $data->save();
-        // return to_route('admin.carousel.index')->with('success', 'Carousel created successfully!');
 
         $media = null;
         if ($request->hasFile('thumbnail')) {
