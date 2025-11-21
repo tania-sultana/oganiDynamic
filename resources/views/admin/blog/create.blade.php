@@ -118,7 +118,7 @@
                 accept="image/*"
                 type="file"
                 name="first_thumbnail"
-                class="d-none"
+                class="d-none w-25 h-25"
                 onchange="previewFile(event, 'preview_first')">
 
             @error('first_thumbnail')
@@ -147,7 +147,7 @@
                 accept="image/*"
                 type="file"
                 name="second_thumbnail"
-                class="d-none"
+                class="d-none w-25 h-25"
                 onchange="previewFile(event, 'preview_second')">
 
             @error('second_thumbnail')

@@ -40,7 +40,7 @@
                                     id="preview" alt="Thumbnail" width="25%">
                             </label>
 
-                            <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none"
+                            <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none w-25 h-25"
                                 onchange="previewFile(event, 'preview')">
 
                             @error('thumbnail')
