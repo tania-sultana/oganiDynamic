@@ -84,10 +84,10 @@
                     </div>
 
                     <div class="mt-3">
-                        <label for="tag" class="form-label fw-bold">
-                            Tag <span class="text-danger">*</span>
+                        <label for="tags" class="form-label fw-bold">
+                            Tags <span class="text-danger">*</span>
                         </label>
-                        <input id="tag" type="text" class="w-100 p-2" name="tag" placeholder="Enter tag"
+                        <input id="tags" type="text" class="w-100 p-2" name="tags" placeholder="Enter tags"
                             required>
                     </div>
 

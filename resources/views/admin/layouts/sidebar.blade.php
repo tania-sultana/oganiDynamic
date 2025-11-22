@@ -13,20 +13,20 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active bg-gradient-dark text-white"
-                    href="#">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+                href="">
                     <i class="material-symbols-rounded opacity-5">dashboard</i>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{route('admin.herosection.index')}}">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.herosection.*') ? 'active' : '' }}" href="{{route('admin.herosection.index')}}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Hero Section</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{route('admin.carousel.index')}}">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.carousel.*') ? 'active' : '' }}" href="{{route('admin.carousel.index')}}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Carousel</span>
                 </a>
@@ -44,9 +44,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="{{route('admin.contact.index')}}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Expert Team</span>
+                    <span class="nav-link-text ms-1">Contact</span>
                 </a>
             </li>
             <li class="nav-item">

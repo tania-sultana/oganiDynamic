@@ -32,7 +32,7 @@ class BlogRequest extends FormRequest
         'short_description' => 'nullable|string',
         'description' => 'nullable|string',
         'category' => 'nullable|string',
-        'tag' => 'nullable|string',
+        'tags' => 'nullable|string',
 
         'first_thumbnail' => "$first_thumbnail|image|mimes:png,jpg,jpeg,webp|max:2048",
         'second_thumbnail' => "$second_thumbnail|image|mimes:png,jpg,jpeg,webp|max:2048",

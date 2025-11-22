@@ -28,6 +28,8 @@
 
 <body>
   @include('frontend.layouts.header')
+  @include('frontend.layouts.headerMiddle')
+  @include('frontend.layouts.headerBottom')
 
  @yield('content')
     <!-- --------------------------footer section----------------- -->

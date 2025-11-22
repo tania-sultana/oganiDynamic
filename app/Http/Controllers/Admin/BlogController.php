@@ -44,7 +44,7 @@ class BlogController extends Controller
             'short_description' => $request->short_description,
             'description' => $request->description,
             'category' => $request->category,
-            'tag' => $request->tag,
+            'tags' => $request->tags,
             'first_thumbnail_id' => $firstMedia?->id,
             'second_thumbnail_id' => $secondMedia?->id,
         ]);
@@ -85,4 +85,53 @@ class BlogController extends Controller
 
         return back()->with('success', 'Blog deleted successfully!');
     }
+
+    public function socialLink(Blog $blog)
+    {
+       
+        return view('admin.blog.socialLink', compact('blog'));
+    }
+
+    public function socialLinkUpdate(Blog $blog, Request $request)
+    {
+        $blog->sicialLink()->updateOrCreate([
+            'blog_id' => $blog ? $blog->id : null
+
+        ],[
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'linkedin' => $request->linkedin,
+            'instagram' => $request->instagram,
+            'whatsapp'=> $request->whatsapp,
+        ]);
+        return to_route('admin.blog.index')->withSuccess('Social Link updated successfully!');
+    }
+
+    // public function soaicalLinkUpdate(Team $team, Request $request)
+    // {
+    //     $socialLink = $team->socialLink;
+
+    //     if ($socialLink) {
+    //         $socialLink->update([
+    //             'facebook' => $request->facebook,
+    //             'twitter' => $request->twitter,
+    //             'linkedin' => $request->linkedin,
+    //             'instragram' => $request->instragram,
+    //             'whatsapp'=> $request->whatsapp,
+    //         ]);
+
+    //         return to_route('admin.team.index')->withSuccess('Updated Successfully');
+    //     }
+
+    //     TeamSocialLink::create([
+    //         'team_id' => $team->id,
+    //         'facebook' => $request->facebook,
+    //         'twitter' => $request->twitter,
+    //         'linkedin' => $request->linkedin,
+    //         'instragram' => $request->instragram,
+    //         'whatsapp'=> $request->whatsapp,
+    //     ]);
+
+    //      return to_route('admin.team.index')->withSuccess('Updated Successfully');
+    // }
 }

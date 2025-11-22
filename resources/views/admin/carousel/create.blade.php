@@ -36,7 +36,7 @@
                     <div class=" ">
                         <div class="card-body mt-3">
                             <label for="thumbnail" class="additionThumbnail">
-                                <img src="{{ $carousel->thumbnail ?? 'https://placehold.co/500x500/f1f5f9/png' }}"
+                                <img src="{{ asset('assets/images/default.jpg') }}"
                                     id="preview" alt="Thumbnail" width="25%">
                             </label>
 

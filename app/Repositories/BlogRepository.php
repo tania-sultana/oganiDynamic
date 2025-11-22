@@ -63,7 +63,7 @@ class BlogRepository extends Repository
             'short_description' => $request->short_description,
             'description' => $request->description,
             'category' => $request->category,
-            'tag' => $request->tag,
+            'tags' => $request->tags,
             'first_thumbnail_id' => $first_thumbnail ? $first_thumbnail->id : null,
             'second_thumbnail_id' => $second_thumbnail ? $second_thumbnail->id : null,
         ]);

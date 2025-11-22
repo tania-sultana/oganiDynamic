@@ -46,6 +46,10 @@ class Blog extends Model
         );
     }
 
+    public function sicialLink(){
+        return $this->hasOne(BlogSocialLink::class);
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -60,4 +64,9 @@ class Blog extends Model
             Cache::forget('blog');
         });
     }
+
+
+
+
+
 }

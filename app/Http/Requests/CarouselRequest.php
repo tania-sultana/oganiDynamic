@@ -24,7 +24,7 @@ class CarouselRequest extends FormRequest
         $thumbnail = $this->method() == 'PUT' ? 'nullable' : 'required';
         return [
             'header' => 'required|string|max:255',
-            'thumbnail' => $thumbnail.'|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => $thumbnail.'|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
 }
