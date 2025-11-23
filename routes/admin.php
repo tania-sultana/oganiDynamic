@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
@@ -64,7 +65,15 @@ Route::prefix('/admin')->middleware(['web'])->name('admin.')->group(function () 
  Route::controller(ContactController::class)->group(function () {
     Route::get('contact', 'index')->name('contact.index');
     Route::post('contact/update/{contact?}', 'update')->name('contact.store');
+ });
 
+ Route::controller(CategoryController::class)->group(function () {
+     Route::get('category', 'index')->name('category.index');
+     Route::get('category/create', 'create')->name('category.create');
+     Route::post('category/store', 'store')->name('category.store');
+     Route::get('category/edit/{category}', 'edit')->name('category.edit');
+     Route::put('category/update/{category}', 'update')->name('category.update');
+     Route::get('category/delete/{category}', 'destroy')->name('category.destroy');
  });
 
 

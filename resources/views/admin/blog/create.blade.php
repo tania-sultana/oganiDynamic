@@ -79,8 +79,12 @@
                         <label for="category" class="form-label fw-bold">
                             Category <span class="text-danger">*</span>
                         </label>
-                        <input id="category" type="text" class="w-100 p-2" name="category" placeholder="Enter category"
-                            required>
+                        <select id="category" class="w-100 p-2" name="category" required>
+                            <option value="">Select a category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mt-3">

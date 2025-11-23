@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Media;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,18 +16,20 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('price', 8, 2)->default(0);
-            $table->decimal('discount_price', 8, 2)->default(0);
-            $table->string('short_description')->nullable();
+            $table->foreignIdFor(Category::class)->nullable()->constrained()
+                ->cascadeOnDelete();
+            $table->float('price')->default(0);
+            $table->float('discount_price')->default(0);
+            $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
-            $table->string('additional_information')->nullable();
+            $table->text('additional_information')->nullable();
             $table->foreignIdFor(Media::class)->nullable()->constrained()->nullOnDelete();
-            $table->decimal('weight', 8, 2)->default(0);
-            $table->string('slots')->default(0);
-            $table->json('features')->nullable();
+            $table->float('weight')->default(0);
+            $table->integer('slots')->default(0);
             $table->timestamps();
 
         });
+
     }
 
     /**

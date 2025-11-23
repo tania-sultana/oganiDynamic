@@ -45,6 +45,7 @@ class ProductRepository extends Repository
 
     self::update($product, [
     'name' => $request->name,
+    'category' => $request->category,
     'price' => $request->price,
     'discount_price' => $request->discount_price,
     'short_description' => $request->short_description,

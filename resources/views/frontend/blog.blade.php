@@ -41,18 +41,18 @@
                     <h4 class="fw-bold my-4">Recent News</h4>
                     {{-- @foreach ($blogs->take(3) as $blog) --}}
                     @foreach ($blogs->reverse()->take(3) as $blog)
-
-                    <div class="row">
-                        <div class=" col-12 d-flex gap-3 mb-2">
-                            <div class="image">
-                                <img src="{{ asset($blog?->first_thumbnail) }}" alt="img" style="width: 100px; height: 100px">
+                        <div class="row">
+                            <div class=" col-12 d-flex gap-3 mb-2">
+                                <div class="image">
+                                    <img src="{{ asset($blog?->first_thumbnail) }}" alt="img"
+                                        style="width: 80px; height: 80px; object-fit: cover;">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <p class="mb-0 fw-bold">{{ $blog?->first_title }} </p>
+                                    {{-- <p class="mb-0 fw-bold"> Protect The Liver</p> --}}
+                                    <p class="para mini-text">March 05, 2019</p>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column">
-                                <p class="mb-0 fw-bold">{{ $blog?->first_title }} </p>
-                                {{-- <p class="mb-0 fw-bold"> Protect The Liver</p> --}}
-                                <p class="para mini-text">March 05, 2019</p>
-                            </div>
-                        </div>
                         </div>
                     @endforeach
                     {{-- <div class="d-flex gap-3 mb-2">
@@ -92,24 +92,55 @@
 
             <div class="col-lg-8 col-md-7 col-sm-12">
                 <div class="row mb-4 border-bottom">
-                    @foreach ($blogs ?? []  as $blog)
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 mb-3">
-                            <img src="{{ asset($blog?->first_thumbnail) }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">{{$blog?->first_title}}</p>
-                            <p class="sub-text pb-4">{!! $blog?->description !!}</p>
-                            <a href="{{route('ogani.blogDetails', $blog->id)}}" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
+                    {{-- @foreach ($blogs ?? [] as $blog)
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="pb-5 mb-3">
+                                <img src="{{ asset($blog?->first_thumbnail) }}" class="w-100" alt="ban1">
+                                <ul class="list-unstyled d-flex gap-3 pt-4 ">
+                                    <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
+                                    </li>
+                                    <li class="sub-text"><i class="fa-regular fa-comment"></i>5
+                                    </li>
+                                </ul>
+                                <p class="fw-bold sub-heading">{{ $blog?->first_title }}</p>
+                                <p class="sub-text pb-4">{!! $blog?->description !!}</p>
+                                <a href="{{ route('ogani.blogDetails', $blog->id) }}"
+                                    class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div> @endforeach --}}
+
+
+                    @foreach ($blogs ?? [] as $item)
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="pb-5 mb-3">
+                                <a href="{{ route('ogani.blogDetails', $item?->id) }}" class="text-decoration-none">
+
+
+                                <img src="{{ asset($item?->firstThumbnail) }}" class="w-100" alt="ban1">
+                            </a>
+
+                                <ul class="list-unstyled d-flex gap-3 pt-4">
+                                    <li class="sub-text"><i class="fa-regular fa-calendar"></i>
+                                        {{ $item?->created_at?->format('M d, Y') ?? 'N/A' }}</li>
+                                    <li class="sub-text"><i class="fa-regular fa-comment"></i>5</li>
+                                </ul>
+
+                                <p class="fw-bold sub-heading">{{ $item?->first_title }}</p>
+
+                                <p class="sub-text pb-4">{!! $item?->description ?? '' !!}</p>
+                                <a href="{{ route('ogani.blogDetails', $item->id) }}"
+                                    class="text-decoration-none text-dark border px-3 py-2 input">
+                                    Read More <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+
+
                     {{-- </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="pb-5 mb-3">
                             <img src="{{ asset('assets/images/blog/blog-3.jpg') }}" class="w-100" alt="ban1">
                             <ul class="list-unstyled d-flex gap-3 pt-4 ">
@@ -156,6 +187,7 @@
                             <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
+
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="pb-5 ">
@@ -189,7 +221,6 @@
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div> --}}
-                    @endforeach
                 </div>
                 <!-- ---------------------blog----------------------------- -->
                 <div class="mb-3 pb-5 pt-3">

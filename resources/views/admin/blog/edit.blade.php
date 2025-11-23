@@ -79,11 +79,20 @@
                     @enderror
                 </div>
 
-                <div class="mt-3">
-                    <label for="category" class="form-label fw-bold">Category</label>
-                    <input id="category" name="category" type="text" class="form-control"
-                        value="{{ old('category', $blog->category ?? '') }}">
-                    @error('category')
+               <div class="mt-3">
+                    <label for="category" class="form-label fw-bold">
+                        Category <span class="text-danger">*</span>
+                    </label>
+                    <select id="category" name="category" class="form-control" required>
+                        <option value="">Select a category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $blog->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>

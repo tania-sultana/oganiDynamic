@@ -15,6 +15,11 @@
         <div class="new-arrival-content pr">
             <h4>{{ $product->name }}</h4>
         </div>
+
+        <div class="new-arrival-content pr">
+            <h4>{{ $product->category?->name }}</h4>
+        </div>
+
         <div class="new-arrival-content pr">
             <h6>{{ __('Price') }}</h6>
             <div>

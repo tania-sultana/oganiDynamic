@@ -31,29 +31,9 @@
                         </div>
                     @endforeach
 
-                    {{-- <div class="swiper-slide text-center position-relative">
-                        <img src="{{ asset('assets/images/carousel/cat-2.jpg') }}" alt="Meat" class="img-fluid mb-3">
-                        <h6 class="fw-bold bg-white title">DRINK FRUITS</h6>
-                    </div>
-
-                    <div class="swiper-slide text-center position-relative">
-                        <img src="{{ asset('assets/images/carousel/cat-3.jpg') }}" alt="Meat" class="img-fluid mb-3">
-                        <h6 class="fw-bold bg-white title">DRINK FRUITS</h6>
-                    </div>
-
-                    <div class="swiper-slide text-center">
-                        <img src="{{ asset('assets/images/carousel/cat-4.jpg') }}" alt="Fresh Fruit"
-                            class="img-fluid mb-3">
-                        <h6 class="fw-bold bg-white title">FRESH FRUIT</h6>
-                    </div>
-                    <div class="swiper-slide text-center">
-                        <img src="{{ asset('assets/images/carousel/cat-5.jpg') }}" alt="Fresh Fruit"
-                            class="img-fluid mb-3">
-                        <h6 class="fw-bold bg-white title">FRESH FRUIT</h6>
-                    </div> --}}
                 </div>
                 <!-- <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div> -->
+                                                    <div class="swiper-button-next"></div> -->
             </div>
 
             <!-- ------feature product------------------ -->
@@ -62,116 +42,42 @@
                     <h1 class="heading fw-bold">Featured Product</h1>
                     <div class="underline"></div>
                 </div>
-                <nav class="d-flex justify-content-center gap-5 mb-5">
+                {{-- <nav class="d-flex justify-content-center gap-5 mb-5">
                     <button class="tab-btn active" data-filter="all">All</button>
                     <button class="tab-btn" data-filter="oranges">Oranges</button>
                     <button class="tab-btn" data-filter="meat">Fresh Meat</button>
                     <button class="tab-btn" data-filter="vegetables">Vegetables</button>
                     <button class="tab-btn" data-filter="fastfood">Fastfood</button>
+                </nav> --}}
+
+                <nav class="d-flex justify-content-center gap-5 mb-5">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    @foreach ($categories as $category)
+                        <button class="tab-btn" data-filter="{{ $category }}">
+                            {{ $category?->name }}
+                        </button>
+                    @endforeach
                 </nav>
+
+
                 <div class="product-grid mb-5 gap-4">
-                    <div class="product-card text-center  interactive" data-category="meat">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-1.jpg') }}" alt="Diced Meat">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
 
-                    <div class="product-card text-center interactive" data-category="oranges">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Bananas">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                    @foreach ($products as $product)
+                        <div class="product-card text-center interactive" data-category="{{ $product->category }}">
+                            <div class="position-relative mb-4">
+                                <a href="{{ route('ogani.shopDetails', $product->id) }}">
+                                    <img src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}" class="w-100">
+                                </a>
+                                <div class="hover-icons">
+                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
+                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
                             </div>
+                            <p class="product-name">{{ $product->name }}</p>
+                            <p class="product-price">${{ $product->price }}</p>
                         </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-
-                    <div class="product-card text-center interactive" data-category="vegetables">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-3.jpg') }}" alt="Guava">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-
-                    <div class="product-card text-center interactive" data-category="fastfood, oranges">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-4.jpg') }}" alt="Watermelon">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-                    <div class="product-card text-center  interactive" data-category="meat">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-5.jpg') }}" alt="Diced Meat">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-
-                    <div class="product-card text-center interactive" data-category="oranges">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-6.jpg') }}" alt="Bananas">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-
-                    <div class="product-card text-center interactive" data-category="vegetables">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-7.jpg') }}" alt="Guava">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-
-                    <div class="product-card text-center interactive" data-category="fastfood">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-8.jpg') }}" alt="Watermelon">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
+                    @endforeach
                 </div>
             </section>
             <!-- ------------------------card section------------------- -->
@@ -200,17 +106,14 @@
                             <div class="prod-slider-track">
 
                                 <div class="prod-slider-column">
-                                   @foreach ($products->reverse()->take(3) as $product)
-
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset($product?->thumbnail) }}" alt="Latest 1">
-                                        <div class="prod-details">
-                                            <p>{{$product?->name}}</p>
-                                            <p class="prod-price">{{$product?->price}}</p>
+                                    @foreach ($products->reverse()->take(3) as $product)
+                                        <div class="prod-slider-item">
+                                            <img src="{{ asset($product?->thumbnail) }}" alt="Latest 1">
+                                            <div class="prod-details">
+                                                <p>{{ $product?->name }}</p>
+                                                <p class="prod-price">{{ $product?->price }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-
                                     @endforeach
                                     {{-- <div class="prod-slider-item">
                                         <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Latest 2">
@@ -276,14 +179,14 @@
                             <div class="prod-slider-track">
 
                                 <div class="prod-slider-column">
-                                    @foreach ($products -> take(3) as $product)
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
-                                        <div class="prod-details">
-                                            <p>{{$product?->name}}</p>
-                                            <p class="prod-price">{{$product?->price}}</p>
+                                    @foreach ($products->take(3) as $product)
+                                        <div class="prod-slider-item">
+                                            <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            <div class="prod-details">
+                                                <p>{{ $product?->name }}</p>
+                                                <p class="prod-price">{{ $product?->price }}</p>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
 
                                     {{-- <div class="prod-slider-item">
@@ -350,14 +253,14 @@
 
 
                                 <div class="prod-slider-column">
-                                    @foreach ($products -> take(3) as $product)
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
-                                        <div class="prod-details">
-                                            <p>{{ $product?->name }}</p>
-                                            <p class="prod-price">{{ $product?->price }}</p>
+                                    @foreach ($products->take(3) as $product)
+                                        <div class="prod-slider-item">
+                                            <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            <div class="prod-details">
+                                                <p>{{ $product?->name }}</p>
+                                                <p class="prod-price">{{ $product?->price }}</p>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
 
                                     {{-- <div class="prod-slider-item">
@@ -414,25 +317,28 @@
                 <div class="underline mb-2"></div>
             </div>
             <div class="row mb-5">
-                @foreach ($blogs as $blog)
+                @foreach ($blogs ?? [] as $item)
                     <div class="col-4">
-                        <img src="{{ asset($blog?->first_thumbnail) }}" class="w-100" alt="ban1">
-                        <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                            <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                            </li>
-                            <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                            </li>
+                        <div>
+                            <a href="{{ route('ogani.blogDetails', $item->id) }}" class="text-decoration-none">
+                                <img src="{{ asset($item?->first_thumbnail) }}" class="w-100" alt="ban1">
+                            </a>
+                        </div>
+
+                        <ul class="list-unstyled d-flex gap-3 pt-4">
+                            <li class="sub-text"><i class="fa-regular fa-calendar"></i>
+                                {{ $item?->created_at->format('M d, Y') }}</li>
+                            <li class="sub-text"><i class="fa-regular fa-comment"></i>5</li>
                         </ul>
-                        <p class="fw-bold sub-heading">{{ $blog?->first_title }}</p>
-                        {{-- <p class="sub-text">{!! $blog->description !!}</p> --}}
+
+                        <p class="fw-bold sub-heading">{{ $item?->first_title }}</p>
 
                         <p class="sub-text">
-                            {!! \Illuminate\Support\Str::words($blog->description, 20, '...') !!}
-                            {{-- <a href="{{ route('ogani.blogDetails', $blog->id) }}">See More</a> --}}
+                            {!! \Illuminate\Support\Str::words($item?->description ?? '', 20, '...') !!}
                         </p>
-
                     </div>
                 @endforeach
+
 
                 {{-- <div class="col-4">
                     <img src="{{ asset('assets/images/blog/blog-2.jpg') }}" class="w-100" alt="ban1">
@@ -463,4 +369,6 @@
             </div>
         </div>
     </div>
-@endsection
+
+
+    @endsection

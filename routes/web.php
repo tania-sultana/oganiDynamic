@@ -11,7 +11,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/ogani/shop', 'shop')->name('ogani.shop');
     Route::get('/ogani/blog', 'blog')->name('ogani.blog');
     Route::get('/ogani/contact', 'contact')->name('ogani.contact');
-    Route::get('/ogani/{product}/shopDetails', 'shopDetails')->name('ogani.shopDetails');
+    Route::get('/ogani/{product?}/shopDetails', 'shopDetails')->name('ogani.shopDetails');
     Route::get('/ogani/shoppingCart', 'shoppingCart')->name('ogani.shoppingCart');
     Route::get('/ogani/{blog}/blogDetails', 'blogDetails')->name('ogani.blogDetails');
 

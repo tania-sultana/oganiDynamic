@@ -26,6 +26,7 @@
 
                     @php
                         $productId = 1;
+                        $blogId = 1;
                     @endphp
                     <li class="menu position-relative">
                         <a class="menu-btn nav-link para text-dark fw-bold {{ request()->routeIs('ogani.shopDetails', 'ogani.shoppingCart', 'ogani.checkOut', 'ogani.blogDetails') ? 'active' : '' }}"
@@ -51,9 +52,16 @@
                                     Check Out
                                 </a>
                             </li>
+                            <li>
+                                <a class="nav-link text-decoration-none text-white para {{ request()->routeIs('ogani.blogDetails') ? 'active' : '' }}"
+                                    href="{{ route('ogani.blogDetails', $blogId) }}">
+                                    Blog Details
+                                </a>
+                            </li>
+
                             {{-- <li>
                                 <a class="nav-link text-decoration-none text-white para {{ request()->routeIs('ogani.blogDetails') ? 'active' : '' }}"
-                                    href="{{ route('ogani.blogDetails') }}">
+                                    href="{{ route('ogani.blogDetails', $blogId) }}">
                                     Blog Details
                                 </a>
                             </li> --}}

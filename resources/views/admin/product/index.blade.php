@@ -35,17 +35,17 @@
 
                                 <td>
                                     <div>
-                                        <img src="{{ $product->thumbnail }}" alt="thumbnail"
+                                        <img src="{{ $product?->thumbnail }}" alt="thumbnail"
                                             class="round-thumbnail rounded-circle"
                                             style="width: 80px; height:80px; object-fit:cover">
                                     </div>
                                 </td>
 
                                 <td style="max-width: 400px; white-space:normal; word-wrap:break-word">
-                                    {{ $product->name }}
+                                    {{ $product?->name }}
                                 </td>
                                 <td style="max-width: 400px; white-space:normal; word-wrap:break-word">
-                                    {{ $product->price }}
+                                    {{ $product?->price }}
                                 </td>
 
                                 <td class="text-center">
@@ -55,7 +55,7 @@
                                             <i class="material-symbols-rounded">edit</i>
                                         </a>
 
-                                        <a href="{{ route('admin.product.show', $product->id) }}"
+                                        <a href="{{ route('admin.product.show', $product?->id) }}"
                                             class="btn btn-outline-info">
                                             <i class="material-symbols-rounded ">visibility</i>
                                         </a>

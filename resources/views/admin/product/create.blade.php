@@ -31,6 +31,23 @@
                     </div>
 
                     <div class="mt-3">
+                        <label for="category" class="form-label fw-bold">
+                            Category <span class="text-danger">*</span>
+                        </label>
+                        {{-- <input id="category" type="text" class="w-100 p-2" name="category" placeholder="Enter category"
+                            required> --}}
+
+                        <select id="category" class="w-100 p-2" name="category" required>
+                            <option value="">Select a category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
+
+                    <div class="mt-3">
                         <label for="price" class="form-label fw-bold">
                             Price <span class="text-danger">*</span>
                         </label>
@@ -79,8 +96,8 @@
                         <label for="weight" class="form-label fw-bold">
                             Weight <span class="text-danger">*</span>
                         </label>
-                        <input id="weight" type="number" class="w-100 p-2" name="weight" step="0.01" min="0" placeholder="Enter weight"
-                            >
+                        <input id="weight" type="number" class="w-100 p-2" name="weight" step="0.01" min="0"
+                            placeholder="Enter weight">
                     </div>
 
                 </div>
@@ -99,8 +116,8 @@
                     </div>
                     <div class="card-body">
                         <label for="thumbnail" class="additionThumbnail">
-                            <img src="{{ asset('assets/images/default.jpg') }}"
-                                id="preview" alt="Thumbnail" width="25%">
+                            <img src="{{ asset('assets/images/default.jpg') }}" id="preview" alt="Thumbnail"
+                                width="25%">
                         </label>
 
                         <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none w-25 h-25"
@@ -196,7 +213,6 @@
         quill.on('text-change', function(delta, oldDelta, source) {
             document.getElementById('description').value = correctULTagFromQuill(quill.root.innerHTML);
         });
-
     </script>
 @endpush
 <script>

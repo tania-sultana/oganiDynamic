@@ -10,17 +10,11 @@ use Illuminate\Support\Facades\Storage;
 class Product extends Model
 {
     protected $guarded = ['id'];
-//     protected $table = 'products';
-//    protected $fillable = [
-//        'name',
-//        'description',
-//        'price',
-//        'discount_price',
-//        'short_description',
-//        'additional_information',
-//        'weight',
-//        'media_id'
-//    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
     public function media()
     {

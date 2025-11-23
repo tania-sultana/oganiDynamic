@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\MediaRepository;
 use App\Repositories\ProductRepository;
@@ -23,7 +24,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::latest()->get();
+        return view('admin.product.create', compact('categories'));
     }
 
     public function store(ProductRequest $request)
@@ -35,6 +37,7 @@ class ProductController extends Controller
 
          Product::create([
             'name' => $request->name,
+            'category_id' => $request->category,
             'price' => $request->price,
             'discount_price' => $request->discount_price,
             'short_description' => $request->short_description,
@@ -53,7 +56,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.product.edit', compact('product'));
+        $categories = Category::latest()->get();
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 
     public function update(ProductRequest $request, Product $product)

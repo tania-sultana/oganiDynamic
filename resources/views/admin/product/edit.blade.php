@@ -1,5 +1,14 @@
 @extends('admin.layouts.app')
 @section('content')
+{{-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif --}}
     <div class="page-titles">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -33,6 +42,25 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                <div class="mt-3">
+                    <label for="category" class="form-label fw-bold">
+                        Category <span class="text-danger">*</span>
+                    </label>
+                    <select id="category" name="category" class="form-control" required>
+                        <option value="">Select a category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $product->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
 
                 <div class="mt-3">
                     <label for="price" class="form-label fw-bold">Price</label>

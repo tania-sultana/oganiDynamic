@@ -1,6 +1,5 @@
 @extends('frontend.layouts.app')
 @section('content')
-
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center mb-4">The Moment You Need To Remove Garlic From The Menu</h1>
         <div class="d-flex justify-content-center text-white gap-2">
@@ -9,6 +8,7 @@
         </div>
     </div>
     <!-- --------------------left side------------------------- -->
+
     <div class="container my-5">
         <div class="row border-bottom mb-5">
 
@@ -39,17 +39,25 @@
 
                 <div class="">
                     <h3 class="fw-bold my-4 ">Recent News</h3>
-                    <div class="d-flex gap-3 mb-2">
-                        <div class="image">
-                            <img src="{{ asset('assets/images/blog/sr-1.jpg') }}" alt="">
+                    @foreach ($latestBlogs as $singleBlog)
+                        <div class="row">
+                            <div class=" col-12 d-flex gap-3 mb-2">
+                                <div class="image">
+                                    <img src="{{ $singleBlog?->firstThumbnail }}" alt="img"
+                                        style="width: 80px; height: 80px; object-fit: cover;">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <p class="mb-0 fw-bold">{{ $singleBlog?->first_title }} </p>
+                                    {{-- <p class="mb-0 fw-bold"> Protect The Liver</p> --}}
+                                    <p class="para mini-text">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        {{ $singleBlog?->created_at?->format('M d, Y') ?? 'N/A' }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex flex-column">
-                            <p class="mb-0 fw-bold">09 Kinds Of Vegetables </p>
-                            <p class="mb-0 fw-bold"> Protect The Liver</p>
-                            <p class="para mini-text">March 05, 2019</p>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-3 mb-2">
+                    @endforeach
+                    {{-- <div class="d-flex gap-3 mb-2">
                         <div class="image">
                             <img src="{{ asset('assets/images/blog/sr-2.jpg') }}" alt="">
                         </div>
@@ -68,7 +76,7 @@
                             <p class="mb-0 fw-bold"> Weight With Vegetables</p>
                             <p class="para mini-text">March 05, 2019</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="mb-5">
@@ -84,45 +92,36 @@
                 </div>
             </div>
 
+            {{-- right side --}}
             <div class="col-lg-8 col-md-7 order-md-1 order-1">
                 <div class="">
-                    <img src="{{ asset('assets/images/blogDetails/details-pic.jpg') }}" alt="" class="w-100">
+                    <img src="{{ $blog?->first_thumbnail }}" alt="blogImg" class="w-100" style="object-fit: cover">
                     <p class="text-secondary py-4">
-                        Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit,
-                        eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at
-                        tellus. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Curabitur non nulla
-                        sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Donec rutrum congue leo
-                        eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec
-                        sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu
-                        erat, accumsan id imperdiet et, porttitor at sem.
+                        {!! $blog?->description !!}
                     </p>
                     <h3 class="fw-bold pb-4">
-                        The corner window forms a place within a place that is a resting point within the large space.
+                        {{ $blog?->second_title }}
                     </h3>
                     <p class="text-secondary">
-                        The study area is located at the back with a view of the vast nature. Together with the other
-                        buildings, a congruent story has been managed in which the whole has a reinforcing effect on the
-                        components. The use of materials seeks connection to the main house, the adjacent stables
+                        {{ $blog?->short_description }}
                     </p>
                     <div class="row mt-5">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="d-flex gap-3 mb-5">
-                                <img src="{{ asset('assets/images/blogDetails/details-author.jpg') }}"
-                                    class="rounded-circle" alt="author">
+                                <img src="{{ asset($blog?->secondThumbnail) }}" class="rounded-circle rounded-circle"
+                                    alt="author" style="width: 80px; height:80px">
                                 <div class="d-flex flex-column justify-content-center ">
-                                    <p class="fw-bold mb-0">Michael Scofield</p>
-                                    <p class="text-secondary mb-0">Admin</p>
+                                    <p class="fw-bold mb-0">{{ $blog?->name }}</p>
+                                    <p class="text-secondary mb-0">{{ $blog?->designation }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="mb-5">
                                 <p class=""><span class="fw-bold">Categories:</span> <span
-                                        class="sub-text">Food</span>
+                                        class="sub-text">{{ $blog?->category }}</span>
                                 </p>
-                                <p><span class="fw-bold">Tags:</span> <span class="sub-text">All, Trending, Cooking,
-                                        Healthy Food, Life Style</span></p>
+                                <p><span class="fw-bold">Tags:</span> <span class="sub-text">{{ $blog?->tags }}</span></p>
 
                                 <div class="d-flex text-muted gap-3">
                                     <i class="fa-brands fa-facebook-f"></i>
@@ -145,19 +144,30 @@
             <div class="underline"></div>
         </div>
         <div class="row mb-5">
-            <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
-                <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" class="w-100 " alt="ban1">
-                <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                    <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                    </li>
-                    <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                    </li>
-                </ul>
-                <p class="fw-bold sub-heading">Cooking tips make cooking simple</p>
-                <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                    quaerat</p>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
+            @foreach ($latestBlogs ?? [] as $likeBlog)
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
+                    <!-- Anchor tag wrapping the image -->
+                    <a href="{{ route('ogani.blogDetails', $likeBlog->id) }}" class="text-decoration-none">
+                        <img src="{{ asset($likeBlog?->first_thumbnail ?? 'placeholder.png') }}" class="w-100"
+                            alt="{{ $likeBlog?->first_title ?? 'Blog image' }}">
+                    </a>
+
+                    <ul class="list-unstyled d-flex gap-3 pt-4">
+                        <li class="sub-text">
+                            <i class="fa-regular fa-calendar"></i>
+                            {{ $likeBlog?->created_at?->format('M d, Y') ?? 'N/A' }}
+                        </li>
+                        <li class="sub-text"><i class="fa-regular fa-comment"></i>5</li>
+                    </ul>
+
+                    <p class="fw-bold sub-heading">{{ $likeBlog?->first_title ?? 'No title' }}</p>
+
+                    <p class="sub-text">{!! $likeBlog?->description ?? '' !!}</p>
+
+                </div>
+            @endforeach
+
+            {{-- <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
                 <img src="{{ asset('assets/images/blog/blog-2.jpg') }}" class="w-100" alt="ban1">
                 <ul class="list-unstyled d-flex gap-3 pt-4 ">
                     <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
@@ -182,7 +192,7 @@
                 <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
                     quaerat</p>
 
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

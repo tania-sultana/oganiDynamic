@@ -24,6 +24,7 @@ class ProductRequest extends FormRequest
         $thumbnail = $this->product?->media ? 'nullable' : 'required'; //update product condition
         return [
             'name' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
             'discount_price' => 'nullable|numeric|lte:price',
             'short_description' => 'nullable|string',

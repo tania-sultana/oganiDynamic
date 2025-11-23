@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Repositories\BlogRepository;
 use App\Repositories\MediaRepository;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class BlogController extends Controller
 
     public function create()
     {
-        return view('admin.blog.create');
+        $categories = Category::latest()->get();
+        return view('admin.blog.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -60,7 +62,8 @@ class BlogController extends Controller
 
     public function edit(Blog $blog)
     {
-        return view('admin.blog.edit', compact('blog'));
+        $categories = Category::latest()->get();
+        return view('admin.blog.edit', compact('blog', 'categories'));
     }
 
     public function update(BlogRequest $request, Blog $blog)
@@ -88,7 +91,7 @@ class BlogController extends Controller
 
     public function socialLink(Blog $blog)
     {
-       
+
         return view('admin.blog.socialLink', compact('blog'));
     }
 

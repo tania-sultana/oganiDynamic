@@ -16,35 +16,16 @@
             <div class="row mb-4">
                 <div class="col-lg-6 col-md-6 col-sm-12 ">
                     <div class="">
-                        <img src="{{ asset('assets/images/pages/product-details-1.jpg') }}" class="product-hero"
-                            alt="bnr">
+                        <img src="{{ asset($product?->thumbnail) }}" class="product-hero" alt="bnr">
                         <div class="swiper categorySwiper mb-3">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide text-center position-relative">
-                                    <img src="{{ asset('assets/images/carousel/cat-1.jpg') }}" alt="Meat"
-                                        class="img-fluid mb-3">
-                                </div>
 
-                                <div class="swiper-slide text-center position-relative">
-                                    <img src="{{ asset('assets/images/carousel/cat-2.jpg') }}" alt="Meat"
-                                        class="img-fluid mb-3">
-                                </div>
-
-                                <div class="swiper-slide text-center position-relative">
-                                    <img src="{{ asset('assets/images/carousel/cat-3.jpg') }}" alt="Meat"
-                                        class="img-fluid mb-3">
-                                </div>
-
-                                <div class="swiper-slide text-center">
-                                    <img src="{{ asset('assets/images/carousel/cat-4.jpg') }}" alt="Fresh Fruit"
-                                        class="img-fluid mb-3">
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="{{ asset('assets/images/carousel/cat-5.jpg') }}" alt="Fresh Fruit"
-                                        class="img-fluid mb-3">
-                                </div>
+                                @foreach ($products as $product)
+                                    <div class="swiper-slide text-center position-relative">
+                                        <img src="{{ asset($product?->thumbnail) }}" alt="Meat" class="img-fluid mb-3">
+                                    </div>
+                                @endforeach
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -70,23 +51,8 @@
                             @endfor
                             <p class="para text-danger ">({{ $product->review }} reviews)</p>
                         </div>
-
-                        {{-- <div class="rating-product">
-                                        @for ($i = 1; $i <= $avg; $i++)
-                                        <i class="fa fa-star"></i>
-                                        @endfor
-                                        @for ($i = $avg; $i <= 4; $i++)
-                                        <i class="fa fa-star-o"></i>
-                                        @endfor
-                                        <span>{{$total_reviews}}</span>
-                                    </div> --}}
-
-
-                        <p class="fs-2 text-danger">$50.00</p>
-                        <p class="para">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam
-                            sit
-                            amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit
-                            amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                        <p class="fs-2 text-danger">${{ $product?->price }}</p>
+                        <p class="para">{{ $product?->short_description }}</p>
                         <div class="quantity d-flex flex-wrap align-items-center gap-3 pb-5 border-bottom">
                             <div class="bg-light py-2 px-4 d-flex align-items-center gap-4 ">
                                 <span class="text-secondary dec-qty">-</span>
@@ -110,7 +76,7 @@
                             </div>
                             <div class="d-flex gap-5">
                                 <p class="left-text fw-bold">Weight </p>
-                                <p class=""> 0.5 kg</p>
+                                <p class="">{{ $product?->weight }} kg</p>
                             </div>
                             <div class="d-flex gap-5">
                                 <p class="left-text fw-bold">Share on </p>
@@ -135,60 +101,20 @@
             <div class="my-4 pb-4">
                 <div class="tab-content active" id="description">
                     <p class="fw-bold">Products Information</p>
-                    <p class="text-secondary">Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus suscipit tortor eget
-                        felis porttitor volutpat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                        Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                        dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec
-                        velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus.
-
-                        Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras
-                        ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor
-                        lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit
-                        amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit
-                        amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    <p class="text-secondary">{{ $product?->description }}</p>
                 </div>
 
                 <div class="tab-content" id="information">
                     <p class="fw-bold">Products Information</p>
                     <p class="text-secondary">
-                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci
-                        porta dapibus. Proin eget tortor risus. Vivamus suscipit tortor eget felis porttitor volutpat.
-                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget
-                        malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id
-                        imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non
-                        nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum
-                        primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet
-                        aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus.
-
-                        Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras
-                        ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor
-                        lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                        {{ $product?->additional_information }}
                     </p>
                 </div>
 
 
                 <div class="tab-content " id="reviews">
                     <p class="fw-bold">Products Information</p>
-                    <p class="text-secondary">Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                        Pellentesque
-                        in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus suscipit tortor eget felis
-                        porttitor
-                        volutpat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue
-                        leo
-                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan
-                        id
-                        imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non
-                        nisi.
-                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis
-                        in
-                        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                        vel,
-                        ullamcorper sit amet ligula. Proin eget tortor risus.
+                    <p class="text-secondary">{{ $product?->reviews }}
                     </p>
                 </div>
             </div>
@@ -198,7 +124,33 @@
                 <div class="underline"></div>
             </div>
             <div class="row ">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+
+
+               
+                    @foreach ($relatedProducts as $product)
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product-card text-center interactive" data-category="{{ $product->category }}">
+                                <div class="position-relative mb-4">
+                                    <img src="{{ asset($product->thumbnail) }}" class="w-100" alt="{{ $product->name }}">
+                                    <div class="hover-icons">
+                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
+                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                </div>
+                                <p class="product-name">{{ $product->name }}</p>
+                                <p class="product-price">${{ $product->price }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+
+
+
+
+
+                {{-- <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card text-center interactive  ">
                         <div class="position-relative mb-4 ">
                             <img src="{{ asset('assets/images/product/feature-1.jpg') }}" class="w-100"
@@ -212,9 +164,9 @@
                         <p class="product-name">Crab Pool Security</p>
                         <p class="product-price">$30.00</p>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                {{-- <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card  text-center interactive">
                         <div class="position-relative mb-4 ">
                             <img src="{{ asset('assets/images/product/feature-2.jpg') }}" class="w-100" alt="Bananas">
@@ -258,7 +210,7 @@
                         <p class="product-name">Crab Pool Security</p>
                         <p class="product-price">$30.00</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 

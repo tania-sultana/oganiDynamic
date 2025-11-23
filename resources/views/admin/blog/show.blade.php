@@ -71,7 +71,7 @@
         <div class="blog-detail-content mt-3">
             <h6>{{ __('Category') }}</h6>
             <div>
-                {!! $blog->category !!}
+                <h4>{{ $blog->category?->name }}</h4>
             </div>
         </div>
 

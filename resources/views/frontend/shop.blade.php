@@ -191,25 +191,31 @@
             <div class="col-lg-9 col-md-7 col-sm-12">
                 <div class="carousel-container">
                     <div class="carousel-track">
-                         @foreach ($products->take(3) as $product)
-                        <div class="product-card text-center interactive" data-category="oranges">
-                            <div class="position-relative mb-4">
-                                <img src="{{ asset($product->thumbnail) }}" alt="Burger">
-                                <div class="hover-icons">
-                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                        @foreach ($products as $product)
+                            <div class="product-card text-center interactive" data-category="oranges">
+                                <div class="position-relative mb-4">
+                                    {{-- <img src="{{ asset($product->thumbnail) }}" alt="Burger"> --}}
+
+                                    <a href="{{ route('ogani.shopDetails', $product?->id) }}">
+                                            <img src="{{ asset($product?->thumbnail) }}"
+                                                class="w-100" alt="img">
+                                        </a>
+                                    <div class="hover-icons">
+                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
+                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                    <div class="discount">
+                                        <p>-{{ $product->discount_price }}</p>
+                                    </div>
                                 </div>
-                                <div class="discount">
-                                    <p>-{{$product->discount_price}}</p>
+                                <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                                    <p class="text-secondary para mb-1">{{ $product->category }}</p>
+                                    <p class="mb-2">{{ $product->name }}</p>
+                                    <p class="product-price">${{ $product->price }} <span
+                                            class="ps-2 text-muted para">${{ $product->discount_price }}</span></p>
                                 </div>
                             </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                                <p class="text-secondary para mb-1">Fast Food</p>
-                                <p class="mb-2">{{$product->name}}</p>
-                                <p class="product-price">${{$product->price}} <span class="ps-2 text-muted para">${{$product->discount_price}}</span></p>
-                            </div>
-                        </div>
                         @endforeach
 
                         {{-- <div class="product-card text-center interactive" data-category="dried-fruit">
@@ -304,22 +310,28 @@
                     </div>
 
                     <div class="row ">
-                         @foreach ($products as $product)
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive  ">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset($product?->thumbnail) }}" class="w-100"
-                                        alt="Diced Meat">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+
+                        @foreach ($products as $product)
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product-card text-center interactive  ">
+                                    <div class="position-relative mb-4 ">
+                                        {{-- <img src="{{ asset($product?->thumbnail) }}" class="w-100" alt="Diced Meat"> --}}
+
+                                        <a href="{{ route('ogani.shopDetails', $product?->id) }}">
+                                            <img src="{{ asset($product?->thumbnail) }}"
+                                                class="w-100" alt="img">
+                                        </a>
+
+                                        <div class="hover-icons">
+                                            <button class="icon-btn"><i class="fas fa-heart"></i></button>
+                                            <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                            <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+                                        </div>
                                     </div>
+                                    <p class="product-name">{{ $product?->name }}</p>
+                                    <p class="product-price">${{ $product?->price }}</p>
                                 </div>
-                                <p class="product-name">{{ $product?->name }}</p>
-                                <p class="product-price">${{ $product?->price }}</p>
                             </div>
-                        </div>
                         @endforeach
 
                         {{-- <div class="col-lg-4 col-md-6 col-sm-6">

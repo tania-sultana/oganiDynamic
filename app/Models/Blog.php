@@ -11,6 +11,11 @@ class Blog extends Model
 {
     protected $guarded = ['id'];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
     public function firstMedia()
     {
         return $this->belongsTo(Media::class, 'first_thumbnail_id');
@@ -28,8 +33,7 @@ class Blog extends Model
             get: fn() => $url
         );
     }
-
-
+    
     public function secondMedia()
     {
         return $this->belongsTo(Media::class, 'second_thumbnail_id');
@@ -46,7 +50,8 @@ class Blog extends Model
         );
     }
 
-    public function sicialLink(){
+    public function sicialLink()
+    {
         return $this->hasOne(BlogSocialLink::class);
     }
 
@@ -64,9 +69,4 @@ class Blog extends Model
             Cache::forget('blog');
         });
     }
-
-
-
-
-
 }
