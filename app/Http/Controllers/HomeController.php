@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Card;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\HeroSection;
 use App\Models\Product;
+use App\Models\ProductCart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class FrontendController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
@@ -18,8 +21,10 @@ class FrontendController extends Controller
         $products = Product::all();
         $blogs = Blog::all();
         $categories = Category::all();
-
-        return view('frontend.index', compact('user', 'herosection', 'products', 'blogs', 'categories'));
+        $searchCategories = Category::pluck('name');
+        $topRatedProducts = Product::where('rating', '>=', 4.5)->take(3)->get();
+        $cards = Card::all();
+        return view('frontend.index', compact('user', 'herosection', 'products', 'blogs', 'categories', 'searchCategories', 'topRatedProducts', 'cards'));
     }
 
     public function shop()
@@ -43,10 +48,11 @@ class FrontendController extends Controller
     public function shopDetails(Product $product)
     {
         $products = Product::all();
-        $categories = Product::select('category')->distinct()->pluck('category');
-        $relatedProducts = Product::where('category', $product->category)
-                              ->where('id', '!=', $product->id)
-                              ->get();
+        // $categories = Product::select('category')->distinct()->pluck('category');
+        $categories = Category::pluck('name', 'id');
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->get();
         return view('frontend.shopDetails', compact('product', 'products', 'categories', 'relatedProducts'));
     }
 
@@ -70,5 +76,4 @@ class FrontendController extends Controller
     {
         return view('auth.login');
     }
-
 }

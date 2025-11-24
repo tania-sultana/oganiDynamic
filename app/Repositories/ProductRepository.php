@@ -29,14 +29,14 @@ class ProductRepository extends Repository
     if ($request->hasFile('thumbnail') && $thumbnail) {
         $thumbnail = MediaRepository::updateByRequest(
             $request->file('thumbnail'),
-            'blogs',
+            'products',
             'image',
             $thumbnail
         );
     } elseif ($request->hasFile('thumbnail') && !$thumbnail) {
         $thumbnail = MediaRepository::storeByRequest(
             $request->file('thumbnail'),
-            'blogs',
+            'products',
             'image'
         );
     }

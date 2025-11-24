@@ -371,16 +371,6 @@ textarea {
             line-height: 27px;
             padding-top: 5px;
         }
-
-
-
-
-
-
-
-
-
-
 /* -------------------------map---------------------------- */
 
 map-container {
@@ -493,6 +483,10 @@ map-container {
 
 .cart-btn {
     min-width: 120px;
+}
+.cart-btn:hover {
+    color: #7FAD39 !important;
+    border: 2px solid #7FAD39 !important;
 }
 
 .left-text {

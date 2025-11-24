@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Media;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,15 +13,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hero_section', function (Blueprint $table) {
+        Schema::create('cards', function (Blueprint $table) {
+
             $table->id();
-            $table->string('header');
-            $table->string('first_title');
-            $table->text('second_title');
-            $table->text('short_description');
-            $table->foreignIdFor(Media::class)->nullable()->constrained()->nullOnDelete();
+             $table->foreignIdFor(Category::class)->nullable()->constrained()
+                ->cascadeOnDelete();
+            $table->string('offer')->nullable();
             $table->string('btn_name');
             $table->string('btn_url');
+            $table->foreignIdFor(Media::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hero_section');
+        Schema::dropIfExists('cards');
     }
 };

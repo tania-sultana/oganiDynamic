@@ -102,68 +102,54 @@
 
                 <div class="d-flex justify-content-center align-items-around">
 
-    <!-- First Thumbnail -->
-    <div>
-        <div class="card-header py-3">
-            <h4 class="card-title fs-16 m-0">
-                {{ __('First Thumbnail') }}
-                <span class="text-primary">{{ __('(500 x 500)') }}</span>
-            </h4>
-        </div>
-        <div class="card-body">
-            <label for="first_thumbnail" class="additionThumbnail">
-                <img src="{{ asset('assets/images/default.jpg') }}"
-                     id="preview_first"
-                     alt="first_thumbnail"
-                     width="15rem" height="15rem" >
-            </label>
+                    <!-- First Thumbnail -->
+                    <div>
 
-            <input id="first_thumbnail"
-                accept="image/*"
-                type="file"
-                name="first_thumbnail"
-                class="d-none w-25 h-25"
-                onchange="previewFile(event, 'preview_first')">
+                        <div class="card-body">
+                            <label for="first_thumbnail" class="additionThumbnail">
+                                <img src="{{ asset('assets/images/default.jpg') }}" id="preview_first"
+                                    alt="first_thumbnail" width="25%" >
+                            </label>
+                            <input id="first_thumbnail" accept="image/*" type="file" name="first_thumbnail"
+                                class="d-none w-50 " onchange="previewFile(event, 'preview_first')">
+                            @error('first_thumbnail')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
 
-            @error('first_thumbnail')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div>
+                        <div class="card-header py-3">
+                            <h4 class="card-title fs-16 m-0">
+                                {{ __('First Thumbnail') }}
+                                <span class="text-primary">{{ __('(500 x 500)') }}</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- Second Thumbnail -->
+                    <div>
 
-    <!-- Second Thumbnail -->
-    <div>
-        <div class="card-header py-3">
-            <h4 class="card-title fs-16 m-0">
-                {{ __('Second Thumbnail') }}
-                <span class="text-primary">{{ __('(500 x 500)') }}</span>
-            </h4>
-        </div>
-        <div class="card-body">
-            <label for="second_thumbnail" class="additionThumbnail">
-                <img src="{{ asset('assets/images/default.jpg') }}"
-                     id="preview_second"
-                     alt="second_thumbnail"
-                     width="15rem" height="15rem">
-            </label>
+                        <div class="card-body">
+                            <label for="second_thumbnail" class="additionThumbnail">
+                                <img src="{{ asset('assets/images/default.jpg') }}" id="preview_second"
+                                    alt="second_thumbnail" width="25%" >
+                            </label>
 
-            <input id="second_thumbnail"
-                accept="image/*"
-                type="file"
-                name="second_thumbnail"
-                class="d-none w-25 h-25"
-                onchange="previewFile(event, 'preview_second')">
+                            <input id="second_thumbnail" accept="image/*" type="file" name="second_thumbnail"
+                                class="d-none w-50 " onchange="previewFile(event, 'preview_second')">
 
-            @error('second_thumbnail')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div>
+                            @error('second_thumbnail')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="card-header py-3">
+                            <h4 class="card-title fs-16 m-0">
+                                {{ __('Second Thumbnail') }}
+                                <span class="text-primary">{{ __('(500 x 500)') }}</span>
+                            </h4>
+                        </div>
+                    </div>
 
-</div>
+                </div>
             </div>
-
-
 
 
             <div class="d-flex gap-3 justify-content-end align-items-center mb-3">
@@ -259,4 +245,3 @@
         }
     }
 </script>
-

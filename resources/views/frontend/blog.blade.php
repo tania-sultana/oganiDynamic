@@ -129,7 +129,10 @@
 
                                 <p class="fw-bold sub-heading">{{ $item?->first_title }}</p>
 
-                                <p class="sub-text pb-4">{!! $item?->description ?? '' !!}</p>
+                                {{-- <p class="sub-text pb-4">{!! $item?->description ?? '' !!}</p> --}}
+                                <p class="sub-text">
+                            {!! \Illuminate\Support\Str::words($item?->description ?? '', 25, '...') !!}
+                        </p>
                                 <a href="{{ route('ogani.blogDetails', $item->id) }}"
                                     class="text-decoration-none text-dark border px-3 py-2 input">
                                     Read More <i class="fa-solid fa-arrow-right"></i>
@@ -138,89 +141,6 @@
                         </div>
                     @endforeach
 
-
-                    {{-- </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 mb-3">
-                            <img src="{{ asset('assets/images/blog/blog-3.jpg') }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">Visit the clean farm in the US</p>
-                            <p class="sub-text pb-4">Sed quia non numquam modi tempora indunt ut labore et dolore magnam
-                                aliquam quaerat</p>
-                            <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 mb-3">
-                            <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">Cooking tips make cooking simple</p>
-                            <p class="sub-text pb-4">Sed quia non numquam modi tempora indunt ut labore et dolore magnam
-                                aliquam quaerat</p>
-                            <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 mb-3">
-                            <img src="{{ asset('assets/images/blog/blog-4.jpg') }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">6 ways to prepare breakfast for 30</p>
-                            <p class="sub-text pb-4">Sed quia non numquam modi tempora indunt ut labore et dolore magnam
-                                aliquam quaerat</p>
-                            <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 ">
-                            <img src="{{ asset('assets/images/blog/blog-4.jpg') }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">The Moment You Need To Remove Garlic From The Menu</p>
-                            <p class="sub-text pb-4">Sed quia non numquam modi tempora indunt ut labore et dolore magnam
-                                aliquam quaerat</p>
-                            <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="pb-5 ">
-                            <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" class="w-100" alt="ban1">
-                            <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                                <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                                </li>
-                                <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                                </li>
-                            </ul>
-                            <p class="fw-bold sub-heading">Cooking tips make cooking simple</p>
-                            <p class="sub-text pb-4">Sed quia non numquam modi tempora indunt ut labore et dolore magnam
-                                aliquam quaerat</p>
-                            <a href="#" class="text-decoration-none text-dark border px-3 py-2  input">Read More <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div> --}}
                 </div>
                 <!-- ---------------------blog----------------------------- -->
                 <div class="mb-3 pb-5 pt-3">

@@ -12,19 +12,13 @@
     <hr class="horizontal dark mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
+
+             <li class="nav-item">
                 <a class="nav-link text-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
-                href="">
-                    <i class="material-symbols-rounded opacity-5">dashboard</i>
+                    href="{{ route('admin.dashboard') }}">
+                    <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
-            </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link active bg-gradient-dark text-white" href="{{ route('admin.dashboard') }}">
-                    <i class="material-symbols-rounded opacity-5">dashboard</i>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link text-dark {{ request()->routeIs('admin.herosection.*') ? 'active' : '' }}"
@@ -32,6 +26,8 @@
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Hero Section</span>
                 </a>
+            </li>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ request()->routeIs('admin.carousel.*') ? 'active' : '' }}"
@@ -64,28 +60,11 @@
                     <span class="nav-link-text ms-1">Category</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.card.*') ? 'active' : '' }}" href="{{ route('admin.card.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Choose Us</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Portfolio</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Showcase</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Get In Touch</span>
+                    <span class="nav-link-text ms-1">Card</span>
                 </a>
             </li>
 

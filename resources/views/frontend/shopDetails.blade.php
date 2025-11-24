@@ -1,6 +1,13 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+    {{-- @if (session('cart_message'))
+        <div
+            style="border: 1px solid blue; color: white; border-radius: 4px; padding: 10px; background-color: green; margin-bottom: 10px;">
+            {{ session('cart_message') }}
+        </div>
+    @endif --}}
+
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center">Vegetable’s Package</h1>
         <div class="d-flex justify-content-center text-white gap-2">
@@ -59,9 +66,23 @@
                                 <span class="text-secondary qty">1</span>
                                 <span class="text-secondary inc-qty">+</span>
                             </div>
-                            <button class="btn cart-btn text-white para fw-bold p-2 color-bg ">
+                            {{-- <button class="btn cart-btn text-white para fw-bold p-2 color-bg ">
                                 ADD TO CART
                             </button>
+                             --}}
+
+                            <form action="{{ route('ogani.addToCart.store') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg">
+                                    ADD TO CART
+                                </button>
+                            </form>
+                            {{-- <a href="{{ route('add_to_cart', $product->id) }}"
+                                class="btn cart-btn text-white para fw-bold p-2 color-bg">
+                                ADD TO CART
+                            </a> --}}
+
                             <a href="#" class="px-3 py-2 bg-light text-secondary"><i
                                     class="fa-regular fa-heart"></i></a>
                         </div>
@@ -101,20 +122,20 @@
             <div class="my-4 pb-4">
                 <div class="tab-content active" id="description">
                     <p class="fw-bold">Products Information</p>
-                    <p class="text-secondary">{{ $product?->description }}</p>
+                    <p class="text-secondary">{!! $product?->description !!}</p>
                 </div>
 
                 <div class="tab-content" id="information">
                     <p class="fw-bold">Products Information</p>
                     <p class="text-secondary">
-                        {{ $product?->additional_information }}
+                        {!! $product?->additional_information !!}
                     </p>
                 </div>
 
 
                 <div class="tab-content " id="reviews">
                     <p class="fw-bold">Products Information</p>
-                    <p class="text-secondary">{{ $product?->reviews }}
+                    <p class="text-secondary">{!! $product?->reviews !!}
                     </p>
                 </div>
             </div>
@@ -126,23 +147,23 @@
             <div class="row ">
 
 
-               
-                    @foreach ($relatedProducts as $product)
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="product-card text-center interactive" data-category="{{ $product->category }}">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset($product->thumbnail) }}" class="w-100" alt="{{ $product->name }}">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
+
+                @foreach ($relatedProducts as $product)
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="product-card text-center interactive" data-category="{{ $product->category }}">
+                            <div class="position-relative mb-4">
+                                <img src="{{ asset($product->thumbnail) }}" class="w-100" alt="{{ $product->name }}">
+                                <div class="hover-icons">
+                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
+                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
                                 </div>
-                                <p class="product-name">{{ $product->name }}</p>
-                                <p class="product-price">${{ $product->price }}</p>
                             </div>
+                            <p class="product-name">{{ $product->name }}</p>
+                            <p class="product-price">${{ $product->price }}</p>
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach
 
 
 

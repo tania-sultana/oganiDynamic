@@ -27,7 +27,7 @@
                                 <td>
                                     {{-- {{$blog->first_thumbnail_id}} --}}
                                     <div>
-                                        <img src="{{ $blog->firstThumbnail}}"
+                                        <img src="{{ $blog->first_thumbnail }}"
                                             alt="Blog First Thumbnail" class="round-thumbnail rounded-circle"
                                             style="width: 80px; height: 80px; object-fit: cover;" />
                                     </div>
@@ -39,6 +39,9 @@
                                 <td style="max-width: 400px; white-space:normal; word-wrap:break-word">
                                     {{ $blog->short_description }}
                                 </td>
+
+
+
 
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center align-items-center gap-2">

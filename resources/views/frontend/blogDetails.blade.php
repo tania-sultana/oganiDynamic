@@ -57,26 +57,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="d-flex gap-3 mb-2">
-                        <div class="image">
-                            <img src="{{ asset('assets/images/blog/sr-2.jpg') }}" alt="">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <p class="mb-0 fw-bold">Tips You To Balance </p>
-                            <p class="mb-0 fw-bold"> Nutrition Meal Day</p>
-                            <p class="para mini-text">March 05, 2019</p>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-3">
-                        <div class="image">
-                            <img src="{{ asset('assets/images/blog/sr-3.jpg') }}" alt="">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <p class="mb-0 fw-bold">4 Principles Help You Lose </p>
-                            <p class="mb-0 fw-bold"> Weight With Vegetables</p>
-                            <p class="para mini-text">March 05, 2019</p>
-                        </div>
-                    </div> --}}
+                    
                 </div>
 
                 <div class="mb-5">
@@ -162,37 +143,13 @@
 
                     <p class="fw-bold sub-heading">{{ $likeBlog?->first_title ?? 'No title' }}</p>
 
-                    <p class="sub-text">{!! $likeBlog?->description ?? '' !!}</p>
+                    {{-- <p class="sub-text">{!! $likeBlog?->description ?? '' !!}</p> --}}
+                    <p class="sub-text">
+                            {!! \Illuminate\Support\Str::words($likeBlog?->description ?? '', 25, '...') !!}
 
                 </div>
             @endforeach
 
-            {{-- <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
-                <img src="{{ asset('assets/images/blog/blog-2.jpg') }}" class="w-100" alt="ban1">
-                <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                    <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                    </li>
-                    <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                    </li>
-                </ul>
-                <p class="fw-bold sub-heading">6 ways to prepare breakfast for 30</p>
-                <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                    quaerat</p>
-
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 ">
-                <img src="{{ asset('assets/images/blog/blog-3.jpg') }}" class="w-100" alt="ban1">
-                <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                    <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                    </li>
-                    <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                    </li>
-                </ul>
-                <p class="fw-bold sub-heading">Visit the clean farm in the US</p>
-                <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                    quaerat</p>
-
-            </div> --}}
         </div>
     </div>
 @endsection

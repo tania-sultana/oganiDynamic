@@ -33,7 +33,7 @@
 
                 </div>
                 <!-- <div class="swiper-button-prev"></div>
-                                                    <div class="swiper-button-next"></div> -->
+                    <div class="swiper-button-next"></div> -->
             </div>
 
             <!-- ------feature product------------------ -->
@@ -82,12 +82,18 @@
             </section>
             <!-- ------------------------card section------------------- -->
             <div class="row my-5 pb-5">
+                @foreach ($cards as $card)
                 <div class="col-6">
-                    <img src="{{ asset('assets/images/banner/banner-1.jpg') }}" class="w-100" alt="ban1">
+                    <div class="d-flex flex-column p-5 hero mt-4 justify-content-center"
+                        style="background-image: url('{{ $card?->thumbnail }}'); background-size: cover; background-repeat: no-repeat; height: 50vh">
+                        <p class=" fw-bold mt-4 mb-2 para">{{ $card?->category->name }}</p>
+                        <p class="para text-muted fw-bold">{{ $card?->offer }}</p>
+                        <button class="btn-all text-white fw-bold py-2  color-bg mb-5">
+                            {{ $card?->btn_name }}
+                        </button>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <img src="{{ asset('assets/images/banner/banner-2.jpg') }}" class="w-100" alt="ban1">
-                </div>
+                @endforeach
             </div>
             <!-- --------------second carousel section----------------------------- -->
             <div class="row mb-5">
@@ -115,54 +121,11 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    {{-- <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Latest 2">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$30.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-3.jpg') }}" alt="Latest 3">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$30.00</p>
-                                        </div>
-                                    </div> --}}
                                 </div>
-
-
-                                {{-- <div class="prod-slider-column">
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-1.jpg') }}" alt="Latest 1">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$30.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Latest 2">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$30.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-3.jpg') }}" alt="Latest 3">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$30.00</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="prod-slider-container" id="top-rated-products-container">
@@ -179,7 +142,7 @@
                             <div class="prod-slider-track">
 
                                 <div class="prod-slider-column">
-                                    @foreach ($products->take(3) as $product)
+                                    @foreach ($topRatedProducts as $product)
                                         <div class="prod-slider-item">
                                             <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
                                             <div class="prod-details">
@@ -188,54 +151,11 @@
                                             </div>
                                         </div>
                                     @endforeach
-
-                                    {{-- <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-2.jpg') }}" alt="Review 2">
-                                        <div class="prod-details">
-                                            <p>High Fiber Cereal Box</p>
-                                            <p class="prod-price">$11.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-3.jpg') }}" alt="Review 3">
-                                        <div class="prod-details">
-                                            <p>Whole Milk Gallon</p>
-                                            <p class="prod-price">$6.00</p>
-                                        </div>
-                                    </div> --}}
                                 </div>
-
-                                {{-- <div class="prod-slider-column">
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-1.jpg') }}" alt="Review 1">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$15.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-2.jpg') }}" alt="Review 2">
-                                        <div class="prod-details">
-                                            <p>High Fiber Cereal Box</p>
-                                            <p class="prod-price">$11.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-3.jpg') }}" alt="Review 3">
-                                        <div class="prod-details">
-                                            <p>Whole Milk Gallon</p>
-                                            <p class="prod-price">$6.00</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="prod-slider-container" id="review-products-container">
@@ -251,7 +171,6 @@
                         <div class="prod-slider-wrapper">
                             <div class="prod-slider-track">
 
-
                                 <div class="prod-slider-column">
                                     @foreach ($products->take(3) as $product)
                                         <div class="prod-slider-item">
@@ -262,49 +181,7 @@
                                             </div>
                                         </div>
                                     @endforeach
-
-                                    {{-- <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/feature-7.jpg') }}" alt="Review 2">
-                                        <div class="prod-details">
-                                            <p>High Fiber Cereal Box</p>
-                                            <p class="prod-price">$11.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/product/product-12.jpg') }}" alt="Review 3">
-                                        <div class="prod-details">
-                                            <p>Whole Milk Gallon</p>
-                                            <p class="prod-price">$6.00</p>
-                                        </div>
-                                    </div> --}}
                                 </div>
-
-                                {{-- <div class="prod-slider-column">
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-1.jpg') }}" alt="Review 1">
-                                        <div class="prod-details">
-                                            <p>Crab Pool Security</p>
-                                            <p class="prod-price">$15.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-2.jpg') }}" alt="Review 2">
-                                        <div class="prod-details">
-                                            <p>High Fiber Cereal Box</p>
-                                            <p class="prod-price">$11.00</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="prod-slider-item">
-                                        <img src="{{ asset('assets/images/latestP/lp-3.jpg') }}" alt="Review 3">
-                                        <div class="prod-details">
-                                            <p>Whole Milk Gallon</p>
-                                            <p class="prod-price">$6.00</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -339,36 +216,7 @@
                     </div>
                 @endforeach
 
-
-                {{-- <div class="col-4">
-                    <img src="{{ asset('assets/images/blog/blog-2.jpg') }}" class="w-100" alt="ban1">
-                    <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                        <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                        </li>
-                        <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                        </li>
-                    </ul>
-                    <p class="fw-bold sub-heading">6 ways to prepare breakfast for 30</p>
-                    <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                        quaerat</p>
-
-                </div>
-                <div class="col-4">
-                    <img src="{{ asset('assets/images/blog/blog-3.jpg') }}" class="w-100" alt="ban1">
-                    <ul class="list-unstyled d-flex gap-3 pt-4 ">
-                        <li class="sub-text"><i class="fa-regular fa-calendar "></i> May 4,2019
-                        </li>
-                        <li class="sub-text"><i class="fa-regular fa-comment"></i>5
-                        </li>
-                    </ul>
-                    <p class="fw-bold sub-heading">Visit the clean farm in the US</p>
-                    <p class="sub-text">Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                        quaerat</p>
-
-                </div> --}}
             </div>
         </div>
     </div>
-
-
-    @endsection
+@endsection

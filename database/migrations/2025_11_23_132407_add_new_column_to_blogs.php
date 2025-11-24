@@ -19,12 +19,7 @@ return new class extends Migration
         Schema::table('blogs', function (Blueprint $table) {
             $table->foreignIdFor(Category::class)->nullable()->constrained()
                 ->nullOnDelete();
-
         });
-
-
-
-
     }
 
     /**

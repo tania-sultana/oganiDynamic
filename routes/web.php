@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::controller(FrontendController::class)->group(function () {
+Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/ogani/shop', 'shop')->name('ogani.shop');
     Route::get('/ogani/blog', 'blog')->name('ogani.blog');
@@ -17,8 +18,6 @@ Route::controller(FrontendController::class)->group(function () {
 
     Route::get('/ogani/checkout', 'checkout')->name('ogani.checkOut');
     Route::get('/login', 'login')->name('login.create');
-
-
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -26,15 +25,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register/store', 'storeRegister')->name('register.store');
 
     Route::post('/login', 'login')->name('user.login');
-
     Route::get('/logout', 'logout')->name('user.logout');
+});
+
+Route::middleware('role:user')->group(function () {
+    Route::controller(CartController::class)->group(function () {
+        Route::get('/addToCart', 'index')->name('ogani.addToCart');
+        Route::post('/addToCart', 'store')->name('ogani.addToCart.store');
+        Route::get('/addToCart/{cart}/delete', 'destroy')->name('ogani.addToCart.delete');
 
 });
 
-// Route::middleware(['role:admin'])->group(function () {
-//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-//         });
+});
 
 
-        // admin routes include
+// admin routes include
 require base_path('routes/admin.php');

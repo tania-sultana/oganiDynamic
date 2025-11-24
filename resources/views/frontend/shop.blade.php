@@ -112,9 +112,9 @@
 
                                 @foreach ($products->reverse()->take(3) as $product)
                                     <div class="prod-slider-item">
-                                        <img src="{{ asset($product->thumbnail) }}" alt="Spinach Greens">
+                                        <img src="{{ $product->thumbnail }}" alt="Spinach Greens">
                                         <div class="prod-details">
-                                            <p>{{ $product->name }}</p>
+                                            <p>{!! $product->name !!}</p>
                                             <p class="prod-price">{{ $product->price }}</p>
                                         </div>
                                     </div>
@@ -191,13 +191,11 @@
             <div class="col-lg-9 col-md-7 col-sm-12">
                 <div class="carousel-container">
                     <div class="carousel-track">
-                        @foreach ($products as $product)
+                        @foreach ($products as $productCard)
                             <div class="product-card text-center interactive" data-category="oranges">
                                 <div class="position-relative mb-4">
-                                    {{-- <img src="{{ asset($product->thumbnail) }}" alt="Burger"> --}}
-
-                                    <a href="{{ route('ogani.shopDetails', $product?->id) }}">
-                                            <img src="{{ asset($product?->thumbnail) }}"
+                                     <a href="{{ route('ogani.shopDetails', $product?->id) }}">
+                                            <img src="{{ $productCard?->thumbnail }}"
                                                 class="w-100" alt="img">
                                         </a>
                                     <div class="hover-icons">
@@ -206,74 +204,18 @@
                                         <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                     <div class="discount">
-                                        <p>-{{ $product->discount_price }}</p>
+                                        <p>-{{ $productCard->discount_price }}</p>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                                    <p class="text-secondary para mb-1">{{ $product->category }}</p>
-                                    <p class="mb-2">{{ $product->name }}</p>
-                                    <p class="product-price">${{ $product->price }} <span
-                                            class="ps-2 text-muted para">${{ $product->discount_price }}</span></p>
+                                    <p class="text-secondary para mb-1">{{ $productCard->category->name }}</p>
+                                    <p class="mb-2">{{ $productCard->name }}</p>
+                                    <p class="productCard-price">${{ $productCard->price }} <span
+                                            class="ps-2 text-muted para">${{ $productCard->discount_price }}</span></p>
                                 </div>
                             </div>
                         @endforeach
 
-                        {{-- <div class="product-card text-center interactive" data-category="dried-fruit">
-                            <div class="position-relative mb-4">
-                                <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Grapes">
-                                <div class="hover-icons">
-                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
-                                <div class="discount">
-                                    <p>-20%</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                                <p class="text-secondary para mb-1">Dried Fruit</p>
-                                <p class="mb-2">Raisin'n'nuts</p>
-                                <p class="product-price">$30.00 <span class=" ps-2 text-muted para">$36.00</span></p>
-                            </div>
-                        </div>
-
-                        <div class="product-card text-center interactive" data-category="dried-fruit">
-                            <div class="position-relative mb-4">
-                                <img src="{{ asset('assets/images/product/feature-3.jpg') }}" alt="Fruit Mix">
-                                <div class="hover-icons">
-                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
-                                <div class="discount">
-                                    <p>-20%</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                                <p class="text-secondary para mb-1">Dried Fruit</p>
-                                <p class="mb-2">Raisin'n'nuts</p>
-                                <p class="product-price">$30.00 <span class=" ps-2 text-muted para">$36.00</span></p>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="product-card text-center interactive" data-category="vegetables">
-                            <div class="position-relative mb-4">
-                                <img src="{{ asset('assets/images/product/feature-4.jpg') }}" alt="Vegetables">
-                                <div class="hover-icons">
-                                    <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                    <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
-                                <div class="discount">
-                                    <p>-20%</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                                <p class="text-secondary para mb-1">Vegetables</p>
-                                <p class="mb-2">Vegetables Box</p>
-                                <p class="product-price">$30.00 <span class=" ps-2 text-muted para">$36.00</span></p>
-                            </div>
-                        </div> --}}
                         <!-- Product Cards End -->
                     </div>
                 </div>
@@ -315,10 +257,8 @@
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product-card text-center interactive  ">
                                     <div class="position-relative mb-4 ">
-                                        {{-- <img src="{{ asset($product?->thumbnail) }}" class="w-100" alt="Diced Meat"> --}}
-
-                                        <a href="{{ route('ogani.shopDetails', $product?->id) }}">
-                                            <img src="{{ asset($product?->thumbnail) }}"
+                                         <a href="{{ route('ogani.shopDetails', $product?->id) }}">
+                                            <img src="{{ $product?->thumbnail }}"
                                                 class="w-100" alt="img">
                                         </a>
 
@@ -334,179 +274,6 @@
                             </div>
                         @endforeach
 
-                        {{-- <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card  text-center interactive">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset('assets/images/product/feature-2.jpg') }}" class="w-100"
-                                        alt="Bananas">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/feature-3.jpg') }}" class="w-100"
-                                        alt="Guava">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive w-100">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/feature-4.jpg') }}" class="w-100"
-                                        alt="Watermelon">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive  ">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset('assets/images/product/feature-5.jpg') }}" class="w-100"
-                                        alt="Diced Meat">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card  text-center interactive">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset('assets/images/product/feature-6.jpg') }}" class="w-100"
-                                        alt="Bananas">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/feature-7.jpg') }}" class="w-100"
-                                        alt="Guava">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive w-100">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/feature-8.jpg') }}" class="w-100"
-                                        alt="Watermelon">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive  ">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset('assets/images/product/product-9.jpg') }}" class="w-100"
-                                        alt="Diced Meat">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card  text-center interactive">
-                                <div class="position-relative mb-4 ">
-                                    <img src="{{ asset('assets/images/product/product-10.jpg') }}" class="w-100"
-                                        alt="Bananas">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/product-11.jpg') }}" class="w-100"
-                                        alt="Guava">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product-card text-center interactive w-100">
-                                <div class="position-relative mb-4">
-                                    <img src="{{ asset('assets/images/product/product-12.jpg') }}" class="w-100"
-                                        alt="Watermelon">
-                                    <div class="hover-icons">
-                                        <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                        <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                                <p class="product-name">Crab Pool Security</p>
-                                <p class="product-price">$30.00</p>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
 

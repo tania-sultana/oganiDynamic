@@ -136,8 +136,6 @@
                  'Oatmeal',
                  'Fresh Bananas',
              ];
-
-             $searchCategories = $departments;
          @endphp
 
          <div class="row py-2 mb-5">

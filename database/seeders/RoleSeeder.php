@@ -13,7 +13,7 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
+        $roles = [
             [
                 'name' => 'admin',
                 'guard_name' => 'web',
@@ -23,6 +23,15 @@ class RoleSeeder extends Seeder
                 'guard_name' => 'web',
             ],
         ];
-        Role::insert($data);
+
+        foreach ($roles as $role) {
+            Role::updateOrCreate([
+                'name' => $role['name'],
+                'guard_name' => $role['guard_name'],
+            ],[
+                'updated_at' => now(),
+                'created_at' => now(),
+            ]);
+        }
     }
 }

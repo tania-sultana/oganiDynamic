@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('first_title');
-            $table->string('second_title');
+            $table->text('second_title');
             $table->string('name')->nullable();
             $table->string('designation')->nullable();
-            $table->string('short_description')->nullable();
+            $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
             $table->foreignId('first_thumbnail_id')->nullable()->constrained('media')->nullOnDelete();
             $table->foreignId('second_thumbnail_id')->nullable()->constrained('media')->nullOnDelete();
