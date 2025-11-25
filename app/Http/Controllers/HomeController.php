@@ -17,6 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth('web')->user();
+        // dd($user->roles->pluck('name')->toArray());
+        // dd($user);
         $herosection = HeroSection::latest()->first();
         $products = Product::all();
         $blogs = Blog::all();
@@ -47,18 +49,22 @@ class HomeController extends Controller
 
     public function shopDetails(Product $product)
     {
+        $productThumbnail = Product::all();
         $products = Product::all();
         // $categories = Product::select('category')->distinct()->pluck('category');
         $categories = Category::pluck('name', 'id');
         $relatedProducts = Product::where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id)
-            ->get();
-        return view('frontend.shopDetails', compact('product', 'products', 'categories', 'relatedProducts'));
+            ->where('id', '!=', $product->id)->get();
+        return view('frontend.shopDetails', compact('product', 'products', 'categories', 'relatedProducts', 'productThumbnail'));
     }
 
     public function shoppingCart()
     {
-        return view('frontend.shoppingCart');
+          $cartItems = ProductCart::with('product')->where('user_id', Auth::id())->get();
+           $subtotal = $cartItems->sum(function($item) {
+        return $item->product->price * $item->quantity;
+    });
+        return view('frontend.shoppingCart', compact('cartItems', 'subtotal'));
     }
 
     public function blogDetails(Blog $blog)
@@ -69,7 +75,9 @@ class HomeController extends Controller
 
     public function checkout()
     {
-        return view('frontend.checkOut');
+
+        $items = Product::all();
+        return view('frontend.checkOut', compact( 'items'));
     }
 
     public function login()

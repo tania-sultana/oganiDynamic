@@ -1,17 +1,43 @@
-// -----------------inc and dec value------------------
-const dec = document.querySelector('.dec-qty');
-  const inc = document.querySelector('.inc-qty');
-  const qtyDisplay = document.querySelector('.qty');
+// -------shoppig cart quantity and total price------------
+document.addEventListener('DOMContentLoaded', () => {
+    function updateCartTotals() {
+        let subtotal = 0;
+        document.querySelectorAll('.total-price').forEach(rowTotal => {
+            let priceText = rowTotal.textContent.replace('$', '').replace(/,/g, '');
+            subtotal += parseFloat(priceText);
+        });
+        document.querySelector('#subtotal').textContent = '$' + subtotal.toFixed(2);
+        document.querySelector('#total').textContent = '$' + subtotal.toFixed(2);
+    }
 
-  dec.addEventListener('click', () => {
-    let qty = parseInt(qtyDisplay.textContent);
-    if (qty > 1) qtyDisplay.textContent = qty - 1;
-  });
+    // Quantity increment/decrement code
+    document.querySelectorAll('.quantity').forEach(qtyDiv => {
+        const decBtn = qtyDiv.querySelector('.dec-qty');
+        const incBtn = qtyDiv.querySelector('.inc-qty');
+        const qtyP = qtyDiv.querySelector('.qty');
+        const price = parseFloat(qtyP.dataset.price);
+        const totalPriceP = qtyDiv.closest('tr').querySelector('.total-price');
 
-  inc.addEventListener('click', () => {
-    let qty = parseInt(qtyDisplay.textContent);
-    qtyDisplay.textContent = qty + 1;
-  });
+        incBtn.addEventListener('click', () => {
+            let qty = parseInt(qtyP.textContent);
+            qty += 1;
+            qtyP.textContent = qty;
+            totalPriceP.textContent = '$' + (price * qty).toFixed(2);
+            updateCartTotals();
+        });
+
+        decBtn.addEventListener('click', () => {
+            let qty = parseInt(qtyP.textContent);
+            if (qty > 1) qty -= 1;
+            qtyP.textContent = qty;
+            totalPriceP.textContent = '$' + (price * qty).toFixed(2);
+            updateCartTotals();
+        });
+    });
+    updateCartTotals();
+});
+
+
   // -----------tab section description informathion reviews section------------
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');

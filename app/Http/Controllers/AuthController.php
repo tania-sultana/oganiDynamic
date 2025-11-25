@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         // dd($request->all());
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
@@ -29,6 +29,7 @@ class AuthController extends Controller
             'password' => $request->password,
 
         ]);
+        $user->assignRole('user');
         return view('auth.login');
     }
 

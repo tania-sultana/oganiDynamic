@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -32,12 +33,16 @@ Route::middleware('role:user')->group(function () {
     Route::controller(CartController::class)->group(function () {
         Route::get('/addToCart', 'index')->name('ogani.addToCart');
         Route::post('/addToCart', 'store')->name('ogani.addToCart.store');
+        Route::get('/updateSubtotal', 'updateSubtotal')->name('ogani.addToCart.updateSubtotal');
         Route::get('/addToCart/{cart}/delete', 'destroy')->name('ogani.addToCart.delete');
+    });
 
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('/checkout', 'index')->name('ogani.checkout');
+        Route::post('/checkout', 'store')->name('ogani.checkout.store');
+        Route::get('/checkout/success', 'success')->name('ogani.checkout.success');
+    });
 });
-
-});
-
 
 // admin routes include
 require base_path('routes/admin.php');

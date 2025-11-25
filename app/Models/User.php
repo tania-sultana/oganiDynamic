@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -25,6 +26,16 @@ class User extends Authenticatable
         'phone',
         'password',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function billings()
+    {
+        return $this->hasMany(OrderBlilling::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

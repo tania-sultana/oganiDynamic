@@ -1,13 +1,13 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    {{-- @if (session('cart_message'))
-        <div
-            style="border: 1px solid blue; color: white; border-radius: 4px; padding: 10px; background-color: green; margin-bottom: 10px;">
-            {{ session('cart_message') }}
-        </div>
-    @endif --}}
-
+ <div class="container">
+    @if (session('cart_message'))
+            <div class="mb-3 p-2 text-white fw-bold" style="background-color:#7FAD39; border-radius:4px;">
+                {{ session('cart_message') }}
+            </div>
+        @endif
+ </div>
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center">Vegetable’s Package</h1>
         <div class="d-flex justify-content-center text-white gap-2">
@@ -27,9 +27,9 @@
                         <div class="swiper categorySwiper mb-3">
                             <div class="swiper-wrapper">
 
-                                @foreach ($products as $product)
+                                @foreach ($productThumbnail as $productThumb)
                                     <div class="swiper-slide text-center position-relative">
-                                        <img src="{{ asset($product?->thumbnail) }}" alt="Meat" class="img-fluid mb-3">
+                                        <img src="{{ $productThumb?->thumbnail }}" alt="Meat" class="img-fluid mb-3">
                                     </div>
                                 @endforeach
                             </div>
@@ -66,10 +66,6 @@
                                 <span class="text-secondary qty">1</span>
                                 <span class="text-secondary inc-qty">+</span>
                             </div>
-                            {{-- <button class="btn cart-btn text-white para fw-bold p-2 color-bg ">
-                                ADD TO CART
-                            </button>
-                             --}}
 
                             <form action="{{ route('ogani.addToCart.store') }}" method="POST" style="display:inline;">
                                 @csrf
@@ -78,10 +74,6 @@
                                     ADD TO CART
                                 </button>
                             </form>
-                            {{-- <a href="{{ route('add_to_cart', $product->id) }}"
-                                class="btn cart-btn text-white para fw-bold p-2 color-bg">
-                                ADD TO CART
-                            </a> --}}
 
                             <a href="#" class="px-3 py-2 bg-light text-secondary"><i
                                     class="fa-regular fa-heart"></i></a>
@@ -145,8 +137,6 @@
                 <div class="underline"></div>
             </div>
             <div class="row ">
-
-
 
                 @foreach ($relatedProducts as $product)
                     <div class="col-lg-3 col-md-4 col-sm-6">
