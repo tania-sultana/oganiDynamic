@@ -13,10 +13,35 @@ class BlogRepository extends Repository
     {
         return Blog::class;
     }
-
-    public static function updateByRequest(Request $request , Blog $blog)
+    public static function storeByRequest(Request $request)
     {
-       $first_thumbnail = $blog->firstMedia()->first();
+        $firstMedia = null;
+        if ($request->hasFile('first_thumbnail')) {
+            $firstMedia = MediaRepository::storeByRequest($request->first_thumbnail, 'blogs', 'image');
+        }
+
+        $secondMedia = null;
+
+         if ($request->hasFile('second_thumbnail')) {
+            $secondMedia = MediaRepository::storeByRequest($request->second_thumbnail, 'blogs', 'image');
+        }
+        return self::create([
+            'first_title' => $request->first_title,
+            'second_title' => $request->second_title,
+            'name' => $request->name,
+            'designation' => $request->designation,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'category' => $request->category,
+            'tags' => $request->tags,
+            'first_thumbnail_id' => $firstMedia?->id,
+            'second_thumbnail_id' => $secondMedia?->id,
+        ]);
+    }
+
+    public static function updateByRequest(Request $request, Blog $blog)
+    {
+        $first_thumbnail = $blog->firstMedia()->first();
 
         if ($request->hasFile('first_thumbnail') && $first_thumbnail) {
             $thumbnail = MediaRepository::updateByRequest(
@@ -35,7 +60,7 @@ class BlogRepository extends Repository
             );
         }
 
-       $second_thumbnail = $blog->secondMedia()->first();
+        $second_thumbnail = $blog->secondMedia()->first();
 
         if ($request->hasFile('second_thumbnail') && $second_thumbnail) {
             $thumbnail = MediaRepository::updateByRequest(

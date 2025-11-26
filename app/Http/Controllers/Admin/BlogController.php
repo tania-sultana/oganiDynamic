@@ -16,40 +16,20 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         $blogs = Blog::all();
-        // dd($blogs);
+
         return view('admin.blog.index', compact('blogs'));
     }
 
     public function create()
     {
         $categories = Category::latest()->get();
+
         return view('admin.blog.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        $firstMedia = null;
-        if ($request->hasFile('first_thumbnail')) {
-            $firstMedia = MediaRepository::storeByRequest($request->first_thumbnail, 'blog');
-        }
-
-        $secondMedia = null;
-        if ($request->hasFile('second_thumbnail')) {
-            $secondMedia = MediaRepository::storeByRequest($request->second_thumbnail, 'blog');
-        }
-
-        Blog::create([
-            'first_title' => $request->first_title,
-            'second_title' => $request->second_title,
-            'name' => $request->name,
-            'designation' => $request->designation,
-            'short_description' => $request->short_description,
-            'description' => $request->description,
-            'category' => $request->category,
-            'tags' => $request->tags,
-            'first_thumbnail_id' => $firstMedia?->id,
-            'second_thumbnail_id' => $secondMedia?->id,
-        ]);
+        BlogRepository::storeByRequest($request);
 
         return to_route('admin.blog.index')->withSuccess('Blog created successfully!');
     }
@@ -63,28 +43,37 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         $categories = Category::latest()->get();
+
         return view('admin.blog.edit', compact('blog', 'categories'));
     }
 
     public function update(BlogRequest $request, Blog $blog)
     {
         BlogRepository::updateByRequest($request, $blog);
+
         return to_route('admin.blog.index')->withSuccess('Blog updated successfully!');
     }
 
     public function destroy(Blog $blog)
     {
+        $firstThumbnail = $blog->firstMedia();
         if ($blog->firstMedia && Storage::exists($blog->firstMedia->src)) {
             Storage::delete($blog->firstMedia->src);
-            $blog->firstMedia->delete();
         }
 
+        $secondThumbnail = $blog->secondMedia();
         if ($blog->secondMedia && Storage::exists($blog->secondMedia->src)) {
             Storage::delete($blog->secondMedia->src);
-            $blog->secondMedia->delete();
         }
 
         $blog->delete();
+
+        if ($firstThumbnail) {
+            $firstThumbnail->delete();
+        }
+        if ($secondThumbnail) {
+            $secondThumbnail->delete();
+        }
 
         return back()->with('success', 'Blog deleted successfully!');
     }
@@ -100,41 +89,14 @@ class BlogController extends Controller
         $blog->sicialLink()->updateOrCreate([
             'blog_id' => $blog ? $blog->id : null
 
-        ],[
+        ], [
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
             'linkedin' => $request->linkedin,
             'instagram' => $request->instagram,
-            'whatsapp'=> $request->whatsapp,
+            'whatsapp' => $request->whatsapp,
         ]);
         return to_route('admin.blog.index')->withSuccess('Social Link updated successfully!');
     }
 
-    // public function soaicalLinkUpdate(Team $team, Request $request)
-    // {
-    //     $socialLink = $team->socialLink;
-
-    //     if ($socialLink) {
-    //         $socialLink->update([
-    //             'facebook' => $request->facebook,
-    //             'twitter' => $request->twitter,
-    //             'linkedin' => $request->linkedin,
-    //             'instragram' => $request->instragram,
-    //             'whatsapp'=> $request->whatsapp,
-    //         ]);
-
-    //         return to_route('admin.team.index')->withSuccess('Updated Successfully');
-    //     }
-
-    //     TeamSocialLink::create([
-    //         'team_id' => $team->id,
-    //         'facebook' => $request->facebook,
-    //         'twitter' => $request->twitter,
-    //         'linkedin' => $request->linkedin,
-    //         'instragram' => $request->instragram,
-    //         'whatsapp'=> $request->whatsapp,
-    //     ]);
-
-    //      return to_route('admin.team.index')->withSuccess('Updated Successfully');
-    // }
 }
