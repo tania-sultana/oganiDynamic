@@ -20,7 +20,7 @@ return new class extends Migration
                   ->cascadeOnDelete();
             $table->string('order_code');
             $table->float('total_price');
-            $table->string('payment_method');
+            $table->string('payment_method')->nullable();
             $table->string('payment_status');
             $table->string('status')->nullable();
             $table->timestamps();

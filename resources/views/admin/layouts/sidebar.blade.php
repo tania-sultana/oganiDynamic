@@ -14,7 +14,7 @@
         <ul class="navbar-nav">
 
              <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+                <a class="nav-link  text-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
                     href="{{ route('admin.dashboard') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Dashboard</span>
@@ -65,6 +65,13 @@
                 <a class="nav-link text-dark {{ request()->routeIs('admin.card.*') ? 'active' : '' }}" href="{{ route('admin.card.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Card</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.order.*') ? 'active' : '' }}" href="{{ route('admin.order.index') }}">
+                    <i class="material-symbols-rounded opacity-5">table_view</i>
+                    <span class="nav-link-text ms-1">Order</span>
                 </a>
             </li>
 

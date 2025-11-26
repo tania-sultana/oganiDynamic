@@ -129,35 +129,30 @@
                     </ul>
                 </li>
 
-
-
-                <div class="user-box dropdown">
-                    <a class="d-flex align-items-center dropdown-toggle-nocaret" href="#" role="button"
+                @php
+                    $user = auth()->user();
+                @endphp
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="material-symbols-rounded">account_circle</i>
-                        {{-- <img src="{{Auth::user()->image}}" class="user-img"
-                        alt="user avatar"> --}}
-                        {{-- <div class="user-info ps-3">
-                        <p class="user-name mb-0">{{Auth::user()->name}}</p>
+                        @if ($user)
+                            {{ $user->name }}
+                        @else
+                            <i class="fa-solid fa-user "></i>
+                        @endif
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
 
-                    </div> --}}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <div class="dropdown-divider mb-0"></div>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                <i class='bx bx-log-out-circle'></i>
-                                <span>Logout</span>
-                            </a>
-                            <form action="#" method="post" id="logoutform" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Home</a></li>
+                        <li><a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a></li>
                     </ul>
                 </div>
+
+
+
+
+
+
             </ul>
         </div>
     </div>

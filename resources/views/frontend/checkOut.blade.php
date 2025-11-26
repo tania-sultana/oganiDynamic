@@ -190,8 +190,10 @@
                                 Paypal
                             </label>
                         </div>
-                        
-                            {{-- <a href="#" class="btn color-bg text-white fw-bold py-2 w-100 para">PLACE ORDER</a> --}}
+                        {{-- all hidden input --}}
+                        <input type="hidden" name="total_price" value="{{ $total }}">
+                        <input type="hidden" name="total" value="{{ $total += $item->product->price * $item->quantity }}">
+
                         <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">PLACE ORDER</button>
                     </div>
                 </div>

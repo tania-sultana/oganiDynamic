@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\OrderProduct;
 use Arafat\LaravelRepository\Repository;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,18 @@ class OrderProductRepository extends Repository
      */
     public static function model()
     {
-        //return User::class;
+        return OrderProduct::class;
     }
 
-    public static function storeByRequest(Request $request)
+    public static function storeByRequest(Request $request, $order, $product): OrderProduct
     {
-       self::create([
-            //
-       ]);
+        // dd($request->all(), $order, $product);
+        $totalPrice = $product->price * $product->quantity;
+        return self::create([
+            'product_id' => $product->product_id,
+            'price' => $product->price,
+            'quantity' => $product->quantity,
+            'total_price' =>$totalPrice,
+        ]);
     }
 }

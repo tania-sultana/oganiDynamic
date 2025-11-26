@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Enums\OrderStatusEnums;
+use App\Enums\PaymentMethodEnums;
+use App\Enums\PaymentStatusEnums;
 use App\Models\Order;
 use Arafat\LaravelRepository\Repository;
 use Illuminate\Http\Request;
@@ -16,19 +19,18 @@ class OrderRepository extends Repository
      */
     public static function model()
     {
-        //return User::class;
+        return Order::class;
     }
 
     public static function storeByRequest(Request $request, $user): Order
     {
-       return self::create([
+        return self::create([
             'user_id' => $user->id,
-            'order_code' => Str::random(8),
-            'total_price' => $request->total,
-            'payment_method' => $request->payment_method,
-            'payment_status' => 
-            'status' => 'pending',
-
-       ]);
+            'order_code' => strtoupper(Str::random(12)),
+            'total_price' => $request->total_price,
+            'payment_method' => PaymentMethodEnums::CASH->value,
+            'payment_status' => PaymentStatusEnums::UNPAID->value,
+            'status' => OrderStatusEnums::PENDING->value
+        ]);
     }
 }

@@ -20,6 +20,6 @@ class Order extends Model
 
     public function billing()
     {
-        return $this->hasOne(OrderBlilling::class);
+        return $this->hasOne(OrderBilling::class);
     }
 }

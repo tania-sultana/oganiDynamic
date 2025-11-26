@@ -22,15 +22,15 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name'      => 'required',
-            'last_name'       => 'required',
-            'country'         => 'required',
-            'address'         => 'required',
-            'city'            => 'required',
-            'state'           => 'required',
-            'postcode'        => 'required',
-            'phone'           => 'required',
-            'email'           => 'required|email'
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'country'   => 'required',
+            'address' => 'required',
+            'city'  => 'required',
+            'state'  => 'required',
+            'postcode' => 'required',
+            'phone'  => 'required',
+            'email'  => 'required|email'
         ];
     }
 

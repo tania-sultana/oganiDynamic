@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
 use PharIo\Manifest\AuthorCollection;
@@ -82,6 +83,14 @@ Route::prefix('/admin')->middleware(['role:admin'])->name('admin.')->group(funct
             Route::get('card/edit/{card}', 'edit')->name('card.edit');
             Route::put('card/update/{card}', 'update')->name('card.update');
             Route::get('card/delete/{card}', 'destroy')->name('card.destroy');
+        });
+
+        Route::controller(OrderController::class)->group(function () {
+            Route::get('order', 'index')->name('order.index');
+            Route::post('order/store', 'store')->name('order.store');
+            Route::get('order/edit/{order}', 'edit')->name('order.edit');
+            Route::put('order/update/{order}', 'update')->name('order.update');
+            Route::get('order/delete/{order}', 'destroy')->name('order.destroy');
         });
     });
 
