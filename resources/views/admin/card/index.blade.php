@@ -4,7 +4,6 @@
         <div class="card-header d-flex align-content-center justify-content-between my-4">
             <h4>Card Section List</h4>
             <a href="{{ route('admin.card.create') }}" class="p-2 bg-light rounded">Add Card Section</a>
-
         </div>
 
         <div class="card-body">
@@ -54,13 +53,11 @@
                                         </a>
                                     </div>
                                 </td>
-
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 @endsection

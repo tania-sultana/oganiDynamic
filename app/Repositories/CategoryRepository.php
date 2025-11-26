@@ -20,8 +20,8 @@ class CategoryRepository extends Repository
 
     public static function storeByRequest(Request $request, Category $category)
     {
-       self::update($category, [
+        self::update($category, [
             'name' => $request->name
-            ]);
+        ]);
     }
 }

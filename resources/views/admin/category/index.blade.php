@@ -18,7 +18,6 @@
                     </thead>
 
                     <tbody>
-
                         @foreach ($categories as $index => $category)
                             <tr>
                                 <td>{{ $index + 1 }}</td>

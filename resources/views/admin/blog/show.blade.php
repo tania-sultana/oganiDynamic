@@ -7,7 +7,6 @@
 
     <div class="card p-3">
         <div class="d-flex justify-content-around">
-
             <div class="tab-content" id="nav-tabContent-first">
                 <div class="tab-pane fade show active" id="nav-first-thumbnail" role="tabpanel" aria-labelledby="nav-first-tab">
                     <img class="img-fluid rounded" src="{{ $blog->firstThumbnail }}" alt="First Thumbnail"
@@ -24,7 +23,6 @@
             </div>
 
         </div>
-
 
         <div class="blog-detail-content mt-3">
             <h6>{{ __('First Title') }}</h6>
@@ -83,14 +81,11 @@
         </div>
     </div>
 
-
     <div class="d-flex gap-3 justify-content-end align-items-center my-3">
         <a href="{{ route('admin.blog.socialLink.index', $blog->id) }}" class="btn btn-lg btn-info rounded px-4">
             {{ __('Social Link') }}
         </a>
 
         <a href="{{ route('admin.blog.index') }}" class="btn btn-lg btn-primary rounded px-5">Reset</a>
-
-
     </div>
 @endsection

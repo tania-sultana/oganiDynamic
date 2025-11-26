@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('content')
     <div class="page-titles">
         <ol class="breadcrumb">
@@ -94,21 +93,16 @@
                         <input id="tags" type="text" class="w-100 p-2" name="tags" placeholder="Enter tags"
                             required>
                     </div>
-
                 </div>
-
 
                 <!--######## Thumbnail Information ##########-->
 
                 <div class="d-flex justify-content-center align-items-around">
-
-                    <!-- First Thumbnail -->
                     <div>
-
                         <div class="card-body">
                             <label for="first_thumbnail" class="additionThumbnail">
-                                <img src="{{ asset('assets/images/default.jpg') }}" id="preview_first"
-                                    alt="first_thumbnail" width="25%" >
+                                <img src="{{ asset('assets/images/default.jpg') }}" id="preview_first" alt="first_thumbnail"
+                                    width="25%">
                             </label>
                             <input id="first_thumbnail" accept="image/*" type="file" name="first_thumbnail"
                                 class="d-none w-50 " onchange="previewFile(event, 'preview_first')">
@@ -124,13 +118,12 @@
                             </h4>
                         </div>
                     </div>
-                    <!-- Second Thumbnail -->
-                    <div>
 
+                    <div>
                         <div class="card-body">
                             <label for="second_thumbnail" class="additionThumbnail">
                                 <img src="{{ asset('assets/images/default.jpg') }}" id="preview_second"
-                                    alt="second_thumbnail" width="25%" >
+                                    alt="second_thumbnail" width="25%">
                             </label>
 
                             <input id="second_thumbnail" accept="image/*" type="file" name="second_thumbnail"
@@ -150,7 +143,6 @@
 
                 </div>
             </div>
-
 
             <div class="d-flex gap-3 justify-content-end align-items-center mb-3">
                 <a href="{{ route('admin.blog.index') }}" class="btn btn-lg btn-light rounded px-5">Reset</a>

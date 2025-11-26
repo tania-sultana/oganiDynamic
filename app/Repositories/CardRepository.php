@@ -25,7 +25,7 @@ class CardRepository extends Repository
             $media = MediaRepository::storeByRequest($request->thumbnail, 'card');
         }
         return self::create([
-           'category_id' => $request->category,
+            'category_id' => $request->category,
             'offer' => $request->offer,
             'btn_name' => $request->btn_name,
             'btn_url' => $request->btn_url,
@@ -56,7 +56,6 @@ class CardRepository extends Repository
             'btn_name' => $request->btn_name,
             'btn_url' => $request->btn_url,
             'thumbnail_id' => $thumbnail?->id ?? $card->thumbnail_id,
-            // 'media_id' => $thumbnail ? $thumbnail->id : null,
         ]);
     }
 }

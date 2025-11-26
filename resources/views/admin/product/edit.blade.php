@@ -1,14 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-{{-- @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif --}}
     <div class="page-titles">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -31,7 +22,6 @@
             </div>
 
             <div class=" p-3">
-
                 <div class="mt-3">
                     <label for="name" class="form-label fw-bold">
                         Name <span class="text-danger">*</span>
@@ -60,7 +50,6 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
 
                 <div class="mt-3">
                     <label for="price" class="form-label fw-bold">Price</label>
@@ -114,8 +103,8 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
             </div>
+
             <!--######## Thumbnail Information ##########-->
 
             <div class="row">
@@ -136,12 +125,8 @@
                                     id="preview" alt="Thumbnail Preview"
                                     style="width: 25%; height: auto; object-fit: cover;">
                             </label>
-
-
                             <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none"
                                 onchange="previewFile(event, 'preview')">
-
-
                             @error('thumbnail')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

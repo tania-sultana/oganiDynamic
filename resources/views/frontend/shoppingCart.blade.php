@@ -57,7 +57,7 @@
                                     ${{ number_format($item->product->price * $item->quantity, 2) }}</p>
                             </td>
                             <td>
-                                <a href="{{ route('ogani.addToCart.delete', $item->id) }}"><i
+                                <a href="{{ route('user.addToCart.delete', $item->id) }}"><i
                                         class="fa-solid fa-xmark text-secondary"></i></a>
                             </td>
                         </tr>
@@ -66,7 +66,7 @@
             </table>
 
             <div class="d-flex justify-content-between py-4">
-                <a href="{{ route('ogani.shop') }}" class="btn bg-light py-2 px-3">CONTINUE SHOPPING</a>
+                <a href="{{ route('shop') }}" class="btn bg-light py-2 px-3">CONTINUE SHOPPING</a>
                 <button class="btn bg-light py-2 px-3"><i class="fa-solid fa-spinner me-1 fa-rotate-90"></i>UPDATE
                     CART</button>
             </div>
@@ -92,14 +92,13 @@
                             <p class="fw-bold send">Total</p>
                             <p id="total" class="fw-bold send text-danger">${{ number_format($subtotal, 2) }}</p>
                         </div>
-                        
+
                         <div class="">
-                            <a href="{{ route('ogani.checkout') }}"
+                            <a href="{{ route('checkOut') }}"
                                 class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">
                                 PROCEED TO CHECKOUT
                             </a>
                         </div>
-
                     </div>
                 </div>
 

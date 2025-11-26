@@ -21,7 +21,6 @@
             </div>
 
             <div class="p-3">
-
                 <div class="mt-3">
                     <label for="header" class="form-label fw-bold">Header <span class="text-danger">*</span></label>
                     <input id="header" name="header" type="text" class="form-control" required
@@ -78,36 +77,7 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
             </div>
-
-            <!--######## Thumbnail Information ##########-->
-            {{-- <div class="row">
-
-                <div class="col-12">
-                    <div class="card ">
-                        <div class="card-header py-3">
-                            <h4 class="card-title fs-16 m-0">
-                                {{ __('Main Thumbnail') }}
-                                <span class="text-primary">
-                                    {{ __('(500 x 500)') }}
-                                </span>
-                            </h4>
-                        </div>
-                        <div class="card-body">
-                            <label for="thumbnail" class="additionThumbnail">
-                                <img src="{{ $herosection->thumbnail ?? 'https://placehold.co/500x500/f1f5f9/png' }}"
-                                    id="preview" alt="" width="100%">
-                            </label>
-                            <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none"
-                                onchange="previewFile(event, 'preview')">
-                            @error('thumbnail')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="row">
                 <div class="col-12">
@@ -131,8 +101,6 @@
 
                             <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none"
                                 onchange="previewFile(event, 'preview')">
-
-
                             @error('thumbnail')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

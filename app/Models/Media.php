@@ -14,11 +14,11 @@ class Media extends Model
     public function srcUrl(): Attribute
     {
         $image = asset('default/default.jpg');
-        if(Storage::exists($this->src)){
+        if (Storage::exists($this->src)) {
             $image = Storage::url($this->src);
         }
         return Attribute::make(
-            get: fn () => $image,
+            get: fn() => $image,
         );
     }
 }

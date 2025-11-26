@@ -20,8 +20,7 @@ class OrderBillingRepository extends Repository
 
     public static function storeByRequest(Request $request, $order): OrderBilling
     {
-       return self::create([
-            // 'user_id' => $request->user->id,
+        return self::create([
             'order_id' => $order->id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -33,6 +32,6 @@ class OrderBillingRepository extends Repository
             'state' => $request->state,
             'phone' => $request->phone,
             'email' => $request->email
-       ]);
+        ]);
     }
 }

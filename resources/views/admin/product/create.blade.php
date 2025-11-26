@@ -21,7 +21,6 @@
                 </div>
 
                 <div class="card-body">
-
                     <div class="mt-3">
                         <label for="name" class="form-label fw-bold">
                             Name <span class="text-danger">*</span>
@@ -34,8 +33,6 @@
                         <label for="category" class="form-label fw-bold">
                             Category <span class="text-danger">*</span>
                         </label>
-                        {{-- <input id="category" type="text" class="w-100 p-2" name="category" placeholder="Enter category"
-                            required> --}}
 
                         <select id="category" class="w-100 p-2" name="category" required>
                             <option value="">Select a category</option>
@@ -43,9 +40,7 @@
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
-
                     </div>
-
 
                     <div class="mt-3">
                         <label for="price" class="form-label fw-bold">
@@ -102,7 +97,6 @@
 
                 </div>
 
-
                 <!--######## Thumbnail Information ##########-->
 
                 <div class=" ">
@@ -122,17 +116,12 @@
 
                         <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none w-25 h-25"
                             onchange="previewFile(event, 'preview')">
-
                         @error('thumbnail')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
                 </div>
             </div>
-
-
-
 
             <div class="d-flex gap-3 justify-content-end align-items-center mb-3">
                 <a href="{{ route('admin.product.index') }}" class="btn btn-lg btn-light rounded px-5">Reset</a>

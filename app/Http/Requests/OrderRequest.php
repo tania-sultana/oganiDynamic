@@ -33,5 +33,4 @@ class OrderRequest extends FormRequest
             'email'  => 'required|email'
         ];
     }
-
 }

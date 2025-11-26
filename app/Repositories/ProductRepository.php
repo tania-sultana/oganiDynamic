@@ -20,43 +20,35 @@ class ProductRepository extends Repository
         return Product::class;
     }
 
-
     public static function updateByRequest(Request $request, Product $product)
-{
-    $thumbnail = $product->Media;
-    // $second_thumbnail = $blog->secondMedia;
+    {
+        $thumbnail = $product->Media;
 
-    if ($request->hasFile('thumbnail') && $thumbnail) {
-        $thumbnail = MediaRepository::updateByRequest(
-            $request->file('thumbnail'),
-            'products',
-            'image',
-            $thumbnail
-        );
-    } elseif ($request->hasFile('thumbnail') && !$thumbnail) {
-        $thumbnail = MediaRepository::storeByRequest(
-            $request->file('thumbnail'),
-            'products',
-            'image'
-        );
+        if ($request->hasFile('thumbnail') && $thumbnail) {
+            $thumbnail = MediaRepository::updateByRequest(
+                $request->file('thumbnail'),
+                'products',
+                'image',
+                $thumbnail
+            );
+        } elseif ($request->hasFile('thumbnail') && !$thumbnail) {
+            $thumbnail = MediaRepository::storeByRequest(
+                $request->file('thumbnail'),
+                'products',
+                'image'
+            );
+        }
+
+        self::update($product, [
+            'name' => $request->name,
+            'category' => $request->category,
+            'price' => $request->price,
+            'discount_price' => $request->discount_price,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'additional_information' => $request->additional_information,
+            'weight' => $request->weight,
+            'thumbnail_id' => $thumbnail?->id ?? $product->thumbnail_id,
+        ]);
     }
-
-
-
-    self::update($product, [
-    'name' => $request->name,
-    'category' => $request->category,
-    'price' => $request->price,
-    'discount_price' => $request->discount_price,
-    'short_description' => $request->short_description,
-    'description' => $request->description,
-    'additional_information' => $request->additional_information,
-    'weight' => $request->weight,
-    'thumbnail_id' => $thumbnail?->id ?? $product->thumbnail_id,
-]);
-
-}
-
-
-
 }

@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('content')
     <div class="page-titles">
         <ol class="breadcrumb">

@@ -27,9 +27,7 @@ return new class extends Migration
             $table->float('weight')->default(0);
             $table->integer('slots')->default(0);
             $table->timestamps();
-
         });
-
     }
 
     /**

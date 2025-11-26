@@ -1,13 +1,13 @@
 @extends('frontend.layouts.app')
 
 @section('content')
- <div class="container">
-    @if (session('cart_message'))
+    <div class="container">
+        @if (session('cart_message'))
             <div class="mb-3 p-2 text-white fw-bold" style="background-color:#7FAD39; border-radius:4px;">
                 {{ session('cart_message') }}
             </div>
         @endif
- </div>
+    </div>
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center">Vegetable’s Package</h1>
         <div class="d-flex justify-content-center text-white gap-2">
@@ -18,7 +18,6 @@
     </div>
 
     <div class="container my-5">
-
         <div class="container my-5">
             <div class="row mb-4">
                 <div class="col-lg-6 col-md-6 col-sm-12 ">
@@ -26,7 +25,6 @@
                         <img src="{{ asset($product?->thumbnail) }}" class="product-hero" alt="bnr">
                         <div class="swiper categorySwiper mb-3">
                             <div class="swiper-wrapper">
-
                                 @foreach ($productThumbnail as $productThumb)
                                     <div class="swiper-slide text-center position-relative">
                                         <img src="{{ $productThumb?->thumbnail }}" alt="Meat" class="img-fluid mb-3">
@@ -36,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- --------------------------right side---------------------- -->
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div>
@@ -67,7 +66,7 @@
                                 <span class="text-secondary inc-qty">+</span>
                             </div>
 
-                            <form action="{{ route('ogani.addToCart.store') }}" method="POST" style="display:inline;">
+                            <form action="{{ route('user.addToCart.store') }}" method="POST" style="display:inline;">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg">
@@ -124,20 +123,19 @@
                     </p>
                 </div>
 
-
                 <div class="tab-content " id="reviews">
                     <p class="fw-bold">Products Information</p>
                     <p class="text-secondary">{!! $product?->reviews !!}
                     </p>
                 </div>
             </div>
+
             <!-- -------------Related Product--------------------- -->
             <div class="text-center mb-4 py-4 ">
                 <h1 class="heading fw-bold">Related Product</h1>
                 <div class="underline"></div>
             </div>
             <div class="row ">
-
                 @foreach ($relatedProducts as $product)
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product-card text-center interactive" data-category="{{ $product->category }}">
@@ -154,77 +152,7 @@
                         </div>
                     </div>
                 @endforeach
-
-
-
-
-
-
-
-                {{-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card text-center interactive  ">
-                        <div class="position-relative mb-4 ">
-                            <img src="{{ asset('assets/images/product/feature-1.jpg') }}" class="w-100"
-                                alt="Diced Meat">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-                </div> --}}
-
-                {{-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card  text-center interactive">
-                        <div class="position-relative mb-4 ">
-                            <img src="{{ asset('assets/images/product/feature-2.jpg') }}" class="w-100" alt="Bananas">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card text-center interactive">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-3.jpg') }}" class="w-100" alt="Guava">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card text-center interactive w-100">
-                        <div class="position-relative mb-4">
-                            <img src="{{ asset('assets/images/product/feature-4.jpg') }}" class="w-100"
-                                alt="Watermelon">
-                            <div class="hover-icons">
-                                <button class="icon-btn"><i class="fas fa-heart"></i></button>
-                                <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
-                                <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <p class="product-name">Crab Pool Security</p>
-                        <p class="product-price">$30.00</p>
-                    </div>
-                </div> --}}
             </div>
         </div>
-
-
     </div>
 @endsection

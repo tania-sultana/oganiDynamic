@@ -47,8 +47,6 @@
                         <i class="material-symbols-rounded">notifications</i>
                     </a>
 
-
-
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                         aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">

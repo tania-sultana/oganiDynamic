@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-
     <div class="page-titles">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -23,7 +22,7 @@
             </div>
 
             <div class=" p-3">
-                 <div class="mt-3">
+                <div class="mt-3">
                     <label for="category" class="form-label fw-bold">
                         Category <span class="text-danger">*</span>
                     </label>
@@ -45,7 +44,8 @@
                     <label for="offer" class="form-label fw-bold">
                         Offer <span class="text-danger">*</span>
                     </label>
-                    <input id="offer" name="offer" type="text" class="form-control" required value="{{ old('offer', $card->offer ?? '') }}">
+                    <input id="offer" name="offer" type="text" class="form-control" required
+                        value="{{ old('offer', $card->offer ?? '') }}">
                     @error('offer')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -68,8 +68,8 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
             </div>
+
             <!--######## Thumbnail Information ##########-->
 
             <div class="row">
@@ -94,8 +94,6 @@
 
                             <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none"
                                 onchange="previewFile(event, 'preview')">
-
-
                             @error('thumbnail')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

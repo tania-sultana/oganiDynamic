@@ -48,7 +48,6 @@
                                 </div>
                                 <div class="d-flex flex-column">
                                     <p class="mb-0 fw-bold">{{ $singleBlog?->first_title }} </p>
-                                    {{-- <p class="mb-0 fw-bold"> Protect The Liver</p> --}}
                                     <p class="para mini-text">
                                         <i class="fa-regular fa-calendar"></i>
                                         {{ $singleBlog?->created_at?->format('M d, Y') ?? 'N/A' }}
@@ -57,7 +56,7 @@
                             </div>
                         </div>
                     @endforeach
-                    
+
                 </div>
 
                 <div class="mb-5">
@@ -128,7 +127,7 @@
             @foreach ($latestBlogs ?? [] as $likeBlog)
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
                     <!-- Anchor tag wrapping the image -->
-                    <a href="{{ route('ogani.blogDetails', $likeBlog->id) }}" class="text-decoration-none">
+                    <a href="{{ route('blogDetails', $likeBlog->id) }}" class="text-decoration-none">
                         <img src="{{ asset($likeBlog?->first_thumbnail ?? 'placeholder.png') }}" class="w-100"
                             alt="{{ $likeBlog?->first_title ?? 'Blog image' }}">
                     </a>
@@ -145,7 +144,7 @@
 
                     {{-- <p class="sub-text">{!! $likeBlog?->description ?? '' !!}</p> --}}
                     <p class="sub-text">
-                            {!! \Illuminate\Support\Str::words($likeBlog?->description ?? '', 25, '...') !!}
+                        {!! \Illuminate\Support\Str::words($likeBlog?->description ?? '', 25, '...') !!}
 
                 </div>
             @endforeach

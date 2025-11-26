@@ -22,7 +22,7 @@ class BlogRepository extends Repository
 
         $secondMedia = null;
 
-         if ($request->hasFile('second_thumbnail')) {
+        if ($request->hasFile('second_thumbnail')) {
             $secondMedia = MediaRepository::storeByRequest($request->second_thumbnail, 'blogs', 'image');
         }
         return self::create([

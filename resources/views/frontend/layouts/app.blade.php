@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="images/logo.png" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -23,31 +23,31 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 </head>
 
 <body>
-  @include('frontend.layouts.header')
-  @include('frontend.layouts.headerMiddle')
-  @include('frontend.layouts.headerBottom')
+    @include('frontend.layouts.header')
+    @include('frontend.layouts.headerMiddle')
+    @include('frontend.layouts.headerBottom')
 
- @yield('content')
+    @yield('content')
     <!-- --------------------------footer section----------------- -->
-   @include('frontend.layouts.footer')
+    @include('frontend.layouts.footer')
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{asset('assets/js/index.js')}}"></script>
-    <script src="{{asset('assets/js/feature-product.js')}}"></script>
-    <script src="{{asset('assets/js/carousel.js')}}"></script>
+    <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="{{ asset('assets/js/feature-product.js') }}"></script>
+    <script src="{{ asset('assets/js/carousel.js') }}"></script>
 
-    <script src="{{asset('assets/js/shop-details.js')}}"></script>
-    <script src="{{asset('assets/js/shop.js')}}"></script>
-    <script src="{{asset('assets/js/carousel.js')}}"></script>
-    <script src="{{asset('assets/js/success.js')}}"></script>
+    <script src="{{ asset('assets/js/shop-details.js') }}"></script>
+    <script src="{{ asset('assets/js/shop.js') }}"></script>
+    <script src="{{ asset('assets/js/carousel.js') }}"></script>
+    <script src="{{ asset('assets/js/success.js') }}"></script>
 
 
 </body>

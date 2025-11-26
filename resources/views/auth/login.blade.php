@@ -48,9 +48,6 @@
                             Password</a>
                     </div>
                     <div class="d-flex gap-3 justify-content-center ">
-                        {{-- <a class=" text-decoration-none text-center py-2 w-100 log-btn border-every"
-                            href="#">Login</a>
-                             --}}
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     <div class="text-center mt-4">

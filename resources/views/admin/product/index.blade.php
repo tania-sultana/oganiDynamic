@@ -32,7 +32,6 @@
                         @foreach ($products as $index => $product)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-
                                 <td>
                                     <div>
                                         <img src="{{ $product?->thumbnail }}" alt="thumbnail"
@@ -44,6 +43,7 @@
                                 <td style="max-width: 400px; white-space:normal; word-wrap:break-word">
                                     {{ $product?->name }}
                                 </td>
+
                                 <td style="max-width: 400px; white-space:normal; word-wrap:break-word">
                                     {{ $product?->price }}
                                 </td>

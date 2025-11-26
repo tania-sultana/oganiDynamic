@@ -21,7 +21,7 @@ class cardRequest extends FormRequest
      */
     public function rules(): array
     {
-        $thumbnail = $this->card?->media ? 'nullable' : 'required'; //update product condition
+        $thumbnail = $this->card?->media ? 'nullable' : 'required';
         return [
             'category' => 'required|string|max:255',
             'offer' => 'required|string|max:255',

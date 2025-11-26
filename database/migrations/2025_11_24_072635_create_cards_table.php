@@ -14,9 +14,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cards', function (Blueprint $table) {
-
             $table->id();
-             $table->foreignIdFor(Category::class)->nullable()->constrained()
+            $table->foreignIdFor(Category::class)->nullable()->constrained()
                 ->cascadeOnDelete();
             $table->string('offer')->nullable();
             $table->string('btn_name');

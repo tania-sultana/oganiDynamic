@@ -20,13 +20,12 @@ class OrderProductRepository extends Repository
 
     public static function storeByRequest(Request $request, $order, $product): OrderProduct
     {
-        // dd($request->all(), $order, $product);
         $totalPrice = $product->price * $product->quantity;
         return self::create([
             'product_id' => $product->product_id,
             'price' => $product->price,
             'quantity' => $product->quantity,
-            'total_price' =>$totalPrice,
+            'total_price' => $totalPrice,
         ]);
     }
 }

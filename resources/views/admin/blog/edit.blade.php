@@ -22,7 +22,6 @@
             </div>
 
             <div class="p-3">
-
                 <div class="mt-3">
                     <label for="first_title" class="form-label fw-bold">First Title</label>
                     <input id="first_title" name="first_title" type="text" class="form-control"
@@ -79,7 +78,7 @@
                     @enderror
                 </div>
 
-               <div class="mt-3">
+                <div class="mt-3">
                     <label for="category" class="form-label fw-bold">
                         Category <span class="text-danger">*</span>
                     </label>
@@ -125,8 +124,8 @@
                                 style="width: 15rem; height: 15rem; object-fit: cover;">
                         </label>
 
-                        <input id="first_thumbnail" accept="image/*" type="file" name="first_thumbnail" class="d-none"
-                            onchange="previewFile(event, 'preview_first')">
+                        <input id="first_thumbnail" accept="image/*" type="file" name="first_thumbnail"
+                            class="d-none" onchange="previewFile(event, 'preview_first')">
 
                         @error('first_thumbnail')
                             <p class="text-danger">{{ $message }}</p>
@@ -156,7 +155,6 @@
                         @enderror
                     </div>
                 </div>
-
             </div>
 
 

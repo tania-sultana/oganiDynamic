@@ -1,6 +1,5 @@
 @extends('frontend.layouts.app')
 @section('content')
-
     <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
         <h1 class="heading fw-bold text-white text-center">Contact Us</h1>
         <div class="d-flex justify-content-center text-white gap-2">
@@ -16,35 +15,34 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <i class="fa-solid fa-phone text fa-2x py-4"></i>
                     <p class="fw-bold fs-4 mb-1">Phone </p>
-                    <p class=" sub-text">{{ $contact?->phone}}</p>
+                    <p class=" sub-text">{{ $contact?->phone }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <i class="fa-solid fa-location-dot text fa-2x py-4"></i>
                     <p class="fw-bold fs-4 mb-1">Address </p>
-                    <p class="sub-text">{{ $contact?->address}}</p>
+                    <p class="sub-text">{{ $contact?->address }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <i class="fa-regular fa-clock text fa-2x py-4"></i>
                     <p class="fw-bold fs-4 mb-1">Open time </p>
-                    <p class="sub-text">{{ $contact?->time}}</p>
+                    <p class="sub-text">{{ $contact?->time }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <i class="fa-regular fa-envelope text fa-2x py-4"></i>
                     <p class="fw-bold fs-4 mb-1">Email </p>
-                    <p class="sub-text">{{ $contact?->email}}</p>
+                    <p class="sub-text">{{ $contact?->email }}</p>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- -------map ------------------ -->
-
-
     <div class="map-container mb-5 py-5 position-relative">
 
         <iframe
@@ -55,12 +53,13 @@
         <div class="card map-card center-card shadow text-center">
             <div class="card-body p-4">
                 <h4 class="card-title mb-3 fw-bold">New York</h4>
-                <p class="card-text mb-1">Phone: {{ $contact?->phone}}</p>
-                <p class="card-text">Add: {{ $contact?->address}}</p>
+                <p class="card-text mb-1">Phone: {{ $contact?->phone }}</p>
+                <p class="card-text">Add: {{ $contact?->address }}</p>
             </div>
         </div>
 
     </div>
+
     <!-- --------------------------------message section-------------- -->
     <div class="container">
         <h1 class="fw-bold text-center mb-5">Leave Message</h1>

@@ -33,7 +33,7 @@ class Blog extends Model
             get: fn() => $url
         );
     }
-    
+
     public function secondMedia()
     {
         return $this->belongsTo(Media::class, 'second_thumbnail_id');

@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 class HeroSection extends Model
 {
-     protected $table = 'hero_section';
-       protected $fillable = [
+    protected $table = 'hero_section';
+    protected $fillable = [
         'header',
         'first_title',
         'second_title',
@@ -20,7 +20,7 @@ class HeroSection extends Model
         'btn_url',
         'media_id',
     ];
-    // protected $guarded = ['id'];
+
 
     public function media()
     {
@@ -29,23 +29,23 @@ class HeroSection extends Model
     public function thumbnail(): Attribute
     {
         $url = asset('assets/imgages/default.jpg');
-        if  ($this->media && Storage::exists($this->media->src)) {
+        if ($this->media && Storage::exists($this->media->src)) {
             $url = Storage::url($this->media->src);
         }
 
         return Attribute::make(
-            get: fn () => $url
+            get: fn() => $url
         );
     }
     protected static function booted()
     {
-        static::creating(function($model){
+        static::creating(function ($model) {
             Cache::forget('hero_section');
         });
-        static::updating(function($model){
+        static::updating(function ($model) {
             Cache::forget('hero_section');
         });
-        static::deleting(function($model){
+        static::deleting(function ($model) {
             Cache::forget('hero_section');
         });
     }

@@ -16,7 +16,7 @@ class Card extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-     public function media()
+    public function media()
     {
         return $this->belongsTo(Media::class);
     }

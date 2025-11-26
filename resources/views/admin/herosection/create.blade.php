@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('content')
     <div class="page-titles">
         <ol class="breadcrumb">
@@ -21,7 +20,6 @@
                 </div>
 
                 <div class="card-body">
-
                     <div class="mt-3">
                         <label for="header" class="form-label fw-bold">Header <span class="text-danger">*</span></label>
                         <input id="header" type="text" class="w-100 p-2" name="header" placeholder="Enter header"
@@ -62,9 +60,7 @@
                         <input id="btn_url" type="url" class="w-100 p-2" name="btn_url" placeholder="Enter button url"
                             required>
                     </div>
-
                 </div>
-
 
                 <!--######## Thumbnail Information ##########-->
 
@@ -79,8 +75,8 @@
                     </div>
                     <div class="card-body">
                         <label for="thumbnail" class="additionThumbnail">
-                            <img src="{{ asset('assets/images/default.jpg') }}"
-                                id="preview" alt="Thumbnail" width="25%">
+                            <img src="{{ asset('assets/images/default.jpg') }}" id="preview" alt="Thumbnail"
+                                width="25%">
                         </label>
 
                         <input id="thumbnail" accept="image/*" type="file" name="thumbnail" class="d-none w-25 h-25"

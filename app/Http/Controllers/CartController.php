@@ -44,7 +44,7 @@ class CartController extends Controller
             'price' => $product->price,
         ]);
 
-        return redirect()->route('ogani.shoppingCart')
+        return redirect()->route('shoppingCart')
             ->with('cart_message', 'Product added to cart successfully!');
     }
 

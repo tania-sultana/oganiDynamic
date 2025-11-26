@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
-
 class AuthController extends Controller
 {
     public function createRegister()
@@ -19,16 +18,14 @@ class AuthController extends Controller
 
     public function storeRegister(RegisterRequest $request)
     {
-        // dd($request->all());
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
             'phone' => $request->phone,
             'password' => $request->password,
-
         ]);
+
         $user->assignRole('user');
         return view('auth.login');
     }
@@ -50,7 +47,6 @@ class AuthController extends Controller
                 return to_route('admin.dashboard')->with('success', 'Login successful!');
             }
 
-            // $request->session()->regenerate();
             return redirect('/')->with('success', 'Login successful!');
         }
 

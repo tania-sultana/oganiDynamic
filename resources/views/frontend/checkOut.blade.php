@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <form action="{{route('ogani.checkout.store')}}" method="post" >
+    <form action="{{ route('checkOut.store') }}" method="post">
         @csrf
         <div class="d-flex flex-column justify-content-center align-items-center p-5 contact mt-4 ">
             <h1 class="heading fw-bold text-white text-center">Checkout</h1>
@@ -21,10 +21,8 @@
                 <h4 class="fw-bold ">Billing Details</h4>
             </div>
 
-
             <div class="row mt-4">
                 <div class="col-lg-8 col-md-6 col-sm-12">
-                    {{-- <form action="" class=" "> --}}
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="mb-4">
@@ -69,7 +67,6 @@
                         <input type="text" name="postcode" class="form-control border-lgt py-2">
                     </div>
 
-
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="mb-4">
@@ -101,7 +98,6 @@
                         the top of the page.
                     </p>
 
-
                     <div class="mb-4">
                         <label for="account_password" class="form-label mb-3">Account Password<span
                                 class="text-danger">*</span></label>
@@ -124,7 +120,6 @@
                             placeholder="Notes about your order, e.g. special notes for delivery." id="order_notes">
                     </div>
 
-                    {{-- </form> --}}
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-sm-12">
@@ -166,8 +161,6 @@
                             <p class="fw-bold text-danger">${{ number_format($total, 2) }}</p>
                         </div>
 
-
-
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
                             <label class="form-check-label" for="flexCheckDefault1">
@@ -192,9 +185,11 @@
                         </div>
                         {{-- all hidden input --}}
                         <input type="hidden" name="total_price" value="{{ $total }}">
-                        <input type="hidden" name="total" value="{{ $total += $item->product->price * $item->quantity }}">
+                        <input type="hidden" name="total"
+                            value="{{ $total += $item->product->price * $item->quantity }}">
 
-                        <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">PLACE ORDER</button>
+                        <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">PLACE
+                            ORDER</button>
                     </div>
                 </div>
             </div>

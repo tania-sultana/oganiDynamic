@@ -24,7 +24,7 @@
             <div class="p-3">
                 <div class="mt-3">
                     <label for="name" class="form-label fw-bold">
-                       Category Name <span class="text-danger">*</span>
+                        Category Name <span class="text-danger">*</span>
                     </label>
                     <input id="name" name="name" type="text" class="form-control" required
                         value="{{ old('name', $category->name ?? '') }}">
@@ -45,4 +45,3 @@
             </div>
     </form>
 @endsection
-

@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function billings()
     {
-        return $this->hasMany(OrderBlilling::class);
+        return $this->hasMany(OrderBilling::class);
     }
 
     /**

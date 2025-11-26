@@ -9,7 +9,6 @@
                     <label for="email" class="form-label fw-bold">
                         Email <span class="text-danger">*</span>
                     </label>
-
                     <input id="email" type="text" class="w-100 p-2" name="email" placeholder="Enter email"
                         value="{{ old('email', $contact?->email) }}">
                 </div>
@@ -42,12 +41,7 @@
                 <button type="submit" class="btn btn-lg btn-primary rounded px-5 mt-3">
                     {{ __('Submit') }}
                 </button>
-
             </div>
-
-
         </form>
-
-
     </div>
 @endsection

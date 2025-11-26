@@ -4,19 +4,19 @@
              $productId = 1;
              $offcanvasMenu = [
                  ['label' => 'Home', 'route' => 'home'],
-                 ['label' => 'Shop', 'route' => 'ogani.shop'],
+                 ['label' => 'Shop', 'route' => 'shop'],
                  [
                      'label' => 'Pages',
                      'route' => null,
                      'children' => [
-                         ['label' => 'Shop Details', 'route' => 'ogani.shopDetails', 'params' => [$productId]],
-                         ['label' => 'Shopping Cart', 'route' => 'ogani.shoppingCart'],
-                         ['label' => 'Check Out', 'route' => 'ogani.checkOut'],
-                         ['label' => 'Blog Details', 'route' => 'ogani.blogDetails'],
+                         ['label' => 'Shop Details', 'route' => 'shopDetails', 'params' => [$productId]],
+                         ['label' => 'Shopping Cart', 'route' => 'shoppingCart'],
+                         ['label' => 'Check Out', 'route' => 'checkOut'],
+                         ['label' => 'Blog Details', 'route' => 'blogDetails'],
                      ],
                  ],
-                 ['label' => 'Blog', 'route' => 'ogani.blog'],
-                 ['label' => 'Contact', 'route' => 'ogani.contact'],
+                 ['label' => 'Blog', 'route' => 'blog'],
+                 ['label' => 'Contact', 'route' => 'contact'],
              ];
          @endphp
 
@@ -85,16 +85,6 @@
                                      <a class="dropdown-item drop-item text-white" href="#">
                                          {{ $item['label'] }} ►
                                      </a>
-                                     {{-- <ul class="submenu">
-                                         @foreach ($item['children'] as $child)
-                                             <li>
-                                                 <a class="dropdown-item drop-item text-white {{ request()->routeIs($child['route']) ? 'active' : '' }}"
-                                                     href="{{ route($child['route'], $child['params'] ?? []) }}">
-                                                     {{ $child['label'] }}
-                                                 </a>
-                                             </li>
-                                         @endforeach
-                                     </ul> --}}
                                  </li>
                              @endif
                          @endforeach
@@ -196,6 +186,5 @@
                  </div>
              </div>
          </div>
-
      </div>
  </div>

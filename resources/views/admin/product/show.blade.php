@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="new-arrival-content pr">
-             <h6>{{ __('Discount Price') }}</h6>
+            <h6>{{ __('Discount Price') }}</h6>
             <div>
                 {!! $product->discount_price !!}
             </div>
@@ -58,7 +58,6 @@
         </div>
 
     </div>
-
 
     <div class="d-flex gap-3 justify-content-end align-items-center my-3">
         <a href="{{ route('admin.product.index') }}" class="btn btn-lg btn-primary rounded px-5">Reset</a>

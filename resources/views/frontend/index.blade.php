@@ -30,10 +30,7 @@
                             <h6 class="fw-bold bg-white title">{{ $product?->name }}</h6>
                         </div>
                     @endforeach
-
                 </div>
-                <!-- <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div> -->
             </div>
 
             <!-- ------feature product------------------ -->
@@ -42,13 +39,6 @@
                     <h1 class="heading fw-bold">Featured Product</h1>
                     <div class="underline"></div>
                 </div>
-                {{-- <nav class="d-flex justify-content-center gap-5 mb-5">
-                    <button class="tab-btn active" data-filter="all">All</button>
-                    <button class="tab-btn" data-filter="oranges">Oranges</button>
-                    <button class="tab-btn" data-filter="meat">Fresh Meat</button>
-                    <button class="tab-btn" data-filter="vegetables">Vegetables</button>
-                    <button class="tab-btn" data-filter="fastfood">Fastfood</button>
-                </nav> --}}
 
                 <nav class="d-flex justify-content-center gap-5 mb-5">
                     <button class="tab-btn active" data-filter="all">All</button>
@@ -59,13 +49,11 @@
                     @endforeach
                 </nav>
 
-
                 <div class="product-grid mb-5 gap-4">
-
                     @foreach ($products as $product)
                         <div class="product-card text-center interactive" data-category="{{ $product->category }}">
                             <div class="position-relative mb-4">
-                                <a href="{{ route('ogani.shopDetails', $product->id) }}">
+                                <a href="{{ route('shopDetails', $product->id) }}">
                                     <img src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}" class="w-100">
                                 </a>
                                 <div class="hover-icons">
@@ -83,16 +71,16 @@
             <!-- ------------------------card section------------------- -->
             <div class="row my-5 pb-5">
                 @foreach ($cards as $card)
-                <div class="col-6">
-                    <div class="d-flex flex-column p-5 hero mt-4 justify-content-center"
-                        style="background-image: url('{{ $card?->thumbnail }}'); background-size: cover; background-repeat: no-repeat; height: 50vh">
-                        <p class=" fw-bold mt-4 mb-2 para">{{ $card?->category->name }}</p>
-                        <p class="para text-muted fw-bold">{{ $card?->offer }}</p>
-                        <button class="btn-all text-white fw-bold py-2  color-bg mb-5">
-                            {{ $card?->btn_name }}
-                        </button>
+                    <div class="col-6">
+                        <div class="d-flex flex-column p-5 hero mt-4 justify-content-center"
+                            style="background-image: url('{{ $card?->thumbnail }}'); background-size: cover; background-repeat: no-repeat; height: 50vh">
+                            <p class=" fw-bold mt-4 mb-2 para">{{ $card?->category->name }}</p>
+                            <p class="para text-muted fw-bold">{{ $card?->offer }}</p>
+                            <button class="btn-all text-white fw-bold py-2  color-bg mb-5">
+                                {{ $card?->btn_name }}
+                            </button>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <!-- --------------second carousel section----------------------------- -->
@@ -197,7 +185,7 @@
                 @foreach ($blogs ?? [] as $item)
                     <div class="col-4">
                         <div>
-                            <a href="{{ route('ogani.blogDetails', $item->id) }}" class="text-decoration-none">
+                            <a href="{{ route('blogDetails', $item->id) }}" class="text-decoration-none">
                                 <img src="{{ asset($item?->first_thumbnail) }}" class="w-100" alt="ban1">
                             </a>
                         </div>

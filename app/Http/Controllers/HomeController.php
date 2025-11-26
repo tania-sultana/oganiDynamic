@@ -17,8 +17,6 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth('web')->user();
-        // dd($user->roles->pluck('name')->toArray());
-        // dd($user);
         $herosection = HeroSection::latest()->first();
         $products = Product::all();
         $blogs = Blog::all();
@@ -76,7 +74,6 @@ class HomeController extends Controller
 
     public function checkout()
     {
-
         $items = Product::all();
         return view('frontend.checkOut', compact('items'));
     }

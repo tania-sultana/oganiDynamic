@@ -119,71 +119,8 @@
                                         </div>
                                     </div>
                                 @endforeach
-
-                                {{-- <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/latestP/lp-2.jpg') }}" alt="Bell Peppers">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/latestP/lp-3.jpg') }}" alt="Fried Chicken">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div> --}}
                             </div>
 
-                            {{-- <div class="prod-slider-column">
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-7.jpg') }}" alt="Bottled Water">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-5.jpg') }}" alt="Red Grapes">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-4.jpg') }}"
-                                        alt="Fresh Strawberries">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="prod-slider-column">
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-3.jpg') }}" alt="Canned Tuna">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-2.jpg') }}" alt="Bread Loaf">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                                <div class="prod-slider-item">
-                                    <img src="{{ asset('assets/images/product/feature-1.jpg') }}" alt="Coffee Beans">
-                                    <div class="prod-details">
-                                        <p>Crab Pool Security</p>
-                                        <p class="prod-price">$30.00</p>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -194,10 +131,9 @@
                         @foreach ($products as $productCard)
                             <div class="product-card text-center interactive" data-category="oranges">
                                 <div class="position-relative mb-4">
-                                     <a href="{{ route('ogani.shopDetails', $product?->id) }}">
-                                            <img src="{{ $productCard?->thumbnail }}"
-                                                class="w-100" alt="img">
-                                        </a>
+                                    <a href="{{ route('shopDetails', $product?->id) }}">
+                                        <img src="{{ $productCard?->thumbnail }}" class="w-100" alt="img">
+                                    </a>
                                     <div class="hover-icons">
                                         <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                         <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -252,16 +188,13 @@
                     </div>
 
                     <div class="row ">
-
                         @foreach ($products as $product)
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product-card text-center interactive  ">
                                     <div class="position-relative mb-4 ">
-                                         <a href="{{ route('ogani.shopDetails', $product?->id) }}">
-                                            <img src="{{ $product?->thumbnail }}"
-                                                class="w-100" alt="img">
+                                        <a href="{{ route('shopDetails', $product?->id) }}">
+                                            <img src="{{ $product?->thumbnail }}" class="w-100" alt="img">
                                         </a>
-
                                         <div class="hover-icons">
                                             <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                             <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>
@@ -273,11 +206,8 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
-
-
 
                 <!-- ---------------------pagination----------------------------- -->
                 <div class="mb-2 pb-5">
@@ -299,7 +229,6 @@
                         </ul>
                     </nav>
                 </div>
-
             </div>
         </div>
     </div>

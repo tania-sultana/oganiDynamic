@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
 
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link  text-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
                     href="{{ route('admin.dashboard') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
@@ -28,48 +28,49 @@
                 </a>
             </li>
 
-            </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.carousel.*') ? 'active' : '' }}"
-                    href="{{ route('admin.carousel.index') }}">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Carousel</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.product.*') ? 'active' : '' }}" href="{{ route('admin.product.index') }}">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Product</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.blog.*') ? 'active' : '' }}" href="{{ route('admin.blog.index') }}">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Blog</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Contact</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.category.*') ? 'active' : '' }}" href="{{ route('admin.category.index') }}">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.category.*') ? 'active' : '' }}"
+                    href="{{ route('admin.category.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Category</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.card.*') ? 'active' : '' }}" href="{{ route('admin.card.index') }}">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.product.*') ? 'active' : '' }}"
+                    href="{{ route('admin.product.index') }}">
+                    <i class="material-symbols-rounded opacity-5">table_view</i>
+                    <span class="nav-link-text ms-1">Product</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.blog.*') ? 'active' : '' }}"
+                    href="{{ route('admin.blog.index') }}">
+                    <i class="material-symbols-rounded opacity-5">table_view</i>
+                    <span class="nav-link-text ms-1">Blog</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}"
+                    href="{{ route('admin.contact.index') }}">
+                    <i class="material-symbols-rounded opacity-5">table_view</i>
+                    <span class="nav-link-text ms-1">Contact</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.card.*') ? 'active' : '' }}"
+                    href="{{ route('admin.card.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Card</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->routeIs('admin.order.*') ? 'active' : '' }}" href="{{ route('admin.order.index') }}">
+                <a class="nav-link text-dark {{ request()->routeIs('admin.order.*') ? 'active' : '' }}"
+                    href="{{ route('admin.order.index') }}">
                     <i class="material-symbols-rounded opacity-5">table_view</i>
                     <span class="nav-link-text ms-1">Order</span>
                 </a>
