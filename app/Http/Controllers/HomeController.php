@@ -51,19 +51,20 @@ class HomeController extends Controller
     {
         $productThumbnail = Product::all();
         $products = Product::all();
-        // $categories = Product::select('category')->distinct()->pluck('category');
         $categories = Category::pluck('name', 'id');
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)->get();
+
         return view('frontend.shopDetails', compact('product', 'products', 'categories', 'relatedProducts', 'productThumbnail'));
     }
 
     public function shoppingCart()
     {
-          $cartItems = ProductCart::with('product')->where('user_id', Auth::id())->get();
-           $subtotal = $cartItems->sum(function($item) {
-        return $item->product->price * $item->quantity;
-    });
+        $cartItems = ProductCart::with('product')->where('user_id', auth()->id())->get();
+        $subtotal = $cartItems->sum(function ($item) {
+            return $item->product->price * $item->quantity;
+        });
+
         return view('frontend.shoppingCart', compact('cartItems', 'subtotal'));
     }
 
@@ -77,7 +78,7 @@ class HomeController extends Controller
     {
 
         $items = Product::all();
-        return view('frontend.checkOut', compact( 'items'));
+        return view('frontend.checkOut', compact('items'));
     }
 
     public function login()

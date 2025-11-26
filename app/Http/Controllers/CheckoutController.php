@@ -40,7 +40,7 @@ class CheckoutController extends Controller
 
         ProductCart::where('user_id', $user->id)->delete();
 
-        return to_route('ogani.checkout.success')->with('success', 'Order placed successfully!');
+        return to_route('user.checkout.success')->with('success', 'Order placed successfully!');
     }
 
     public function success()

@@ -40,7 +40,7 @@ Route::middleware('role:user')->group(function () {
     Route::controller(CheckoutController::class)->group(function () {
         Route::get('/checkout', 'index')->name('ogani.checkout');
         Route::post('/checkout', 'store')->name('ogani.checkout.store');
-        Route::get('/checkout/success', 'success')->name('ogani.checkout.success');
+        Route::get('/checkout/success', 'success')->name('user.checkout.success');
     });
 });
 

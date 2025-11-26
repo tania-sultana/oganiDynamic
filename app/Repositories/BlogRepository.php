@@ -41,18 +41,18 @@ class BlogRepository extends Repository
 
     public static function updateByRequest(Request $request, Blog $blog)
     {
-        $first_thumbnail = $blog->firstMedia()->first();
+        $firstThumbnail = $blog->firstMedia;
 
-        if ($request->hasFile('first_thumbnail') && $first_thumbnail) {
+        if ($request->hasFile('first_thumbnail') && $firstThumbnail) {
             $thumbnail = MediaRepository::updateByRequest(
                 $request->first_thumbnail,
                 'blogs',
                 'image',
-                $first_thumbnail
+                $firstThumbnail
             );
         }
 
-        if ($request->hasFile('first_thumbnail') && $first_thumbnail == null) {
+        if ($request->hasFile('first_thumbnail') && $firstThumbnail == null) {
             $first_thumbnail = MediaRepository::storeByRequest(
                 $request->first_thumbnail,
                 'blogs',
@@ -60,25 +60,24 @@ class BlogRepository extends Repository
             );
         }
 
-        $second_thumbnail = $blog->secondMedia()->first();
+        $secondThumbnail = $blog->secondMedia;
 
-        if ($request->hasFile('second_thumbnail') && $second_thumbnail) {
+        if ($request->hasFile('second_thumbnail') && $secondThumbnail) {
             $thumbnail = MediaRepository::updateByRequest(
                 $request->second_thumbnail,
                 'blogs',
                 'image',
-                $second_thumbnail
+                $secondThumbnail
             );
         }
 
-        if ($request->hasFile('second_thumbnail') && $second_thumbnail == null) {
+        if ($request->hasFile('second_thumbnail') && $secondThumbnail == null) {
             $second_thumbnail = MediaRepository::storeByRequest(
                 $request->second_thumbnail,
                 'blogs',
                 'image'
             );
         }
-
 
         self::update($blog, [
             'first_title' => $request->first_title,
@@ -89,8 +88,8 @@ class BlogRepository extends Repository
             'description' => $request->description,
             'category' => $request->category,
             'tags' => $request->tags,
-            'first_thumbnail_id' => $first_thumbnail ? $first_thumbnail->id : null,
-            'second_thumbnail_id' => $second_thumbnail ? $second_thumbnail->id : null,
+            'first_thumbnail_id' => $firstThumbnail ? $firstThumbnail->id : null,
+            'second_thumbnail_id' => $secondThumbnail ? $secondThumbnail->id : null,
         ]);
     }
 }
