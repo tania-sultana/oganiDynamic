@@ -23,11 +23,15 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 ">
                     <div class="">
                         <img src="{{ asset($product?->thumbnail) }}" class="product-hero" alt="bnr">
+
                         <div class="swiper categorySwiper mb-3">
                             <div class="swiper-wrapper">
                                 @foreach ($productThumbnail as $productThumb)
                                     <div class="swiper-slide text-center position-relative">
-                                        <img src="{{ $productThumb?->thumbnail }}" alt="Meat" class="img-fluid mb-3">
+                                        <a href="{{ route('shopDetails', $productThumb->id) }}">
+                                            <img src="{{ $productThumb?->thumbnail }}" alt="Meat"
+                                                class="img-fluid mb-3">
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>
@@ -77,6 +81,7 @@
                             <a href="#" class="px-3 py-2 bg-light text-secondary"><i
                                     class="fa-regular fa-heart"></i></a>
                         </div>
+
                         <div class="mt-5">
                             <div class="d-flex gap-5">
                                 <p class="left-text fw-bold">Availability </p>
@@ -104,7 +109,7 @@
                 </div>
             </div>
 
-            <!-- --------------description, Information & Reviews section-------------- -->
+            <!-- ------description, Information & Reviews section-------- -->
             <div class="tabs d-flex justify-content-center align-items-center position-relative gap-5 ">
                 <div class="tab fw-bold active" data-tab="description">Description</div>
                 <div class="tab fw-bold" data-tab="information">Information</div>
@@ -140,7 +145,9 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product-card text-center interactive" data-category="{{ $product->category }}">
                             <div class="position-relative mb-4">
-                                <img src="{{ asset($product->thumbnail) }}" class="w-100" alt="{{ $product->name }}">
+                                <a href="{{ route('shopDetails', $product->id) }}">
+                                    <img src="{{ asset($product->thumbnail) }}" class="w-100" alt="{{ $product->name }}">
+                                </a>
                                 <div class="hover-icons">
                                     <button class="icon-btn"><i class="fas fa-heart"></i></button>
                                     <button class="icon-btn"><i class="fas fa-sync-alt"></i></button>

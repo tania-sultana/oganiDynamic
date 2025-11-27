@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-// use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -27,6 +25,7 @@ class AuthController extends Controller
         ]);
 
         $user->assignRole('user');
+
         return view('auth.login');
     }
 
@@ -41,6 +40,8 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             Auth::attempt(['email' => $request->emailo, 'password' => $request->password]);
+
+            /** @var App\Models\User */
             $user = Auth::user();
 
             if ($user->hasRole('admin')) {
@@ -54,9 +55,11 @@ class AuthController extends Controller
             'email' => 'Invalid email or password.',
         ])->onlyInput('email');
     }
+
     public function logout()
     {
         Auth::logout();
+
         return redirect('/');
     }
 }

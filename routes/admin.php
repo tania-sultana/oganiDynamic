@@ -1,30 +1,26 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\HeroSectionController;
-use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\OrderController;
-use Illuminate\Container\Attributes\Auth;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
-use PharIo\Manifest\AuthorCollection;
-
 
 Route::prefix('/admin')->middleware(['role:admin'])->name('admin.')->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::controller(HeroSectionController::class)->group(function () {
-        Route::get('heroSection', 'index')->name('herosection.index');
-        Route::get('heroSection/create', 'create')->name('herosection.create');
-        Route::post('heroSection/store', 'store')->name('herosection.store');
-        Route::get('heroSection/edit/{herosection?}', 'edit')->name('herosection.edit');
-        Route::post('heroSection/update/{herosection?}', 'update')->name('herosection.update');
-        Route::get('heroSection/delete/{herosection?}', 'destroy')->name('herosection.destroy');
+        Route::get('hero-section', 'index')->name('herosection.index');
+        Route::get('hero-section/create', 'create')->name('herosection.create');
+        Route::post('hero-section/store', 'store')->name('herosection.store');
+        Route::get('hero-section/edit/{herosection?}', 'edit')->name('herosection.edit');
+        Route::post('hero-section/update/{herosection?}', 'update')->name('herosection.update');
+        Route::get('hero-section/delete/{herosection?}', 'destroy')->name('herosection.destroy');
     });
 
     Route::controller(ProductController::class)->group(function () {

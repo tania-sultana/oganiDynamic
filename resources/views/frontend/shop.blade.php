@@ -125,13 +125,16 @@
                     </div>
                 </div>
             </div>
+
+{{-- ---------------right side ------------ --}}
+
             <div class="col-lg-9 col-md-7 col-sm-12">
                 <div class="carousel-container">
                     <div class="carousel-track">
                         @foreach ($products as $productCard)
                             <div class="product-card text-center interactive" data-category="oranges">
                                 <div class="position-relative mb-4">
-                                    <a href="{{ route('shopDetails', $product?->id) }}">
+                                    <a href="{{ route('shopDetails', $productCard->id) }}">
                                         <img src="{{ $productCard?->thumbnail }}" class="w-100" alt="img">
                                     </a>
                                     <div class="hover-icons">
@@ -151,8 +154,6 @@
                                 </div>
                             </div>
                         @endforeach
-
-                        <!-- Product Cards End -->
                     </div>
                 </div>
 

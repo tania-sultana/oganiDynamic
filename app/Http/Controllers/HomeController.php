@@ -9,8 +9,6 @@ use App\Models\Contact;
 use App\Models\HeroSection;
 use App\Models\Product;
 use App\Models\ProductCart;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,24 +22,28 @@ class HomeController extends Controller
         $searchCategories = Category::pluck('name');
         $topRatedProducts = Product::where('rating', '>=', 4.5)->take(3)->get();
         $cards = Card::all();
+
         return view('frontend.index', compact('user', 'herosection', 'products', 'blogs', 'categories', 'searchCategories', 'topRatedProducts', 'cards'));
     }
 
     public function shop()
     {
         $products = Product::all();
+
         return view('frontend.shop', compact('products'));
     }
 
     public function blog(Blog $blog)
     {
         $blogs = Blog::all();
+
         return view('frontend.blog', compact('blog', 'blogs'));
     }
 
     public function contact()
     {
         $contact = Contact::latest()->first();
+
         return view('frontend.contact', compact('contact'));
     }
 
@@ -58,7 +60,7 @@ class HomeController extends Controller
 
     public function shoppingCart()
     {
-        $cartItems = ProductCart::with('product')->where('user_id', auth()->id())->get();
+        $cartItems = ProductCart::with('product')->where('user_id', auth('web')->id())->get();
         $subtotal = $cartItems->sum(function ($item) {
             return $item->product->price * $item->quantity;
         });
@@ -69,12 +71,14 @@ class HomeController extends Controller
     public function blogDetails(Blog $blog)
     {
         $latestBlogs = Blog::latest()->take(3)->get();
+
         return view('frontend.blogDetails', compact('blog', 'latestBlogs'));
     }
 
     public function checkout()
     {
         $items = Product::all();
+
         return view('frontend.checkOut', compact('items'));
     }
 

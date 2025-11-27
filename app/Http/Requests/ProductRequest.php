@@ -21,7 +21,8 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
-        $thumbnail = $this->product?->media ? 'nullable' : 'required'; //update product condition
+        $thumbnail = $this->product?->media ? 'nullable' : 'required'; // update product condition
+
         return [
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',

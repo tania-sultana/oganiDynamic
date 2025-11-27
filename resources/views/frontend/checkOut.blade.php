@@ -148,12 +148,18 @@
                                         $total += $item->product->price * $item->quantity;
                                     @endphp
                                 @else
-                                    <div class="d-flex justify-content-between text-danger">
-                                        <p>Product not available</p>
-                                        <p class="fw-bold">$0.00</p>
-                                    </div>
+                                    @php
+                                        $cartUnavailable = true;
+                                    @endphp
                                 @endif
                             @endforeach
+
+                            @if ($cartUnavailable)
+                                <div class="d-flex justify-content-between text-danger">
+                                    <p>Product not available</p>
+                                    <p class="fw-bold">$0.00</p>
+                                </div>
+                            @endif
                         </div>
 
                         <div class="d-flex justify-content-between border-bottom mb-3">
@@ -185,8 +191,6 @@
                         </div>
                         {{-- all hidden input --}}
                         <input type="hidden" name="total_price" value="{{ $total }}">
-                        <input type="hidden" name="total"
-                            value="{{ $total += $item->product->price * $item->quantity }}">
 
                         <button type="submit" class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">PLACE
                             ORDER</button>

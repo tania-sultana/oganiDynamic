@@ -24,6 +24,7 @@ class CardRepository extends Repository
         if ($request->hasFile('thumbnail')) {
             $media = MediaRepository::storeByRequest($request->thumbnail, 'card');
         }
+
         return self::create([
             'category_id' => $request->category,
             'offer' => $request->offer,
@@ -43,7 +44,7 @@ class CardRepository extends Repository
                 'image',
                 $thumbnail
             );
-        } elseif ($request->hasFile('thumbnail') && !$thumbnail) {
+        } elseif ($request->hasFile('thumbnail') && ! $thumbnail) {
             $thumbnail = MediaRepository::storeByRequest(
                 $request->file('thumbnail'),
                 'cards',

@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class BlogRepository extends Repository
 {
-
     public static function model()
     {
         return Blog::class;
     }
+
     public static function storeByRequest(Request $request)
     {
         $firstMedia = null;
@@ -25,6 +25,7 @@ class BlogRepository extends Repository
         if ($request->hasFile('second_thumbnail')) {
             $secondMedia = MediaRepository::storeByRequest($request->second_thumbnail, 'blogs', 'image');
         }
+
         return self::create([
             'first_title' => $request->first_title,
             'second_title' => $request->second_title,

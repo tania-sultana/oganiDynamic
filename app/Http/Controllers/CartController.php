@@ -5,41 +5,42 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
-
 {
     public function index()
     {
         $cartItems = ProductCart::with('product')
-            ->where('user_id', Auth::id())->get();
+            ->where('user_id', auth('web')->id())->get();
+
         $subtotal = $cartItems->sum(function ($item) {
             return $item->product->price * $item->quantity;
         });
+
         return view('frontend.shoppingCart', compact('cartItems', 'subtotal'));
     }
 
     public function store(Request $request)
     {
         $user = auth('web')->user();
+
         $request->validate([
-            'product_id' => 'required|exists:products,id'
+            'product_id' => 'required|exists:products,id',
         ]);
 
-        $product_id = $request->product_id;
-        $exists = ProductCart::where('user_id', $user->id)
-            ->where('product_id', $product_id)
-            ->first();
+        $productId = $request->product_id;
+
+        $exists = ProductCart::where('user_id', $user->id)->where('product_id', $productId)->first();
 
         if ($exists) {
-            return redirect()->back()->with('cart_message', 'Product already in cart!');
+            return back()->with('cart_message', 'Product already in cart!');
         }
 
-        $product = Product::findOrFail($product_id);
+        $product = Product::findOrFail($productId);
+
         ProductCart::create([
             'user_id' => $user->id,
-            'product_id' => $product_id,
+            'product_id' => $productId,
             'quantity' => 1,
             'price' => $product->price,
         ]);
@@ -48,12 +49,12 @@ class CartController extends Controller
             ->with('cart_message', 'Product added to cart successfully!');
     }
 
-    public function destroy($cart_id)
+    public function destroy($cartId)
     {
-        $cartItem = ProductCart::where('id', $cart_id)->where('user_id', Auth::id())
-            ->firstOrFail();
+        $cartItem = ProductCart::where('id', $cartId)->where('user_id', auth('web')->id())->firstOrFail();
+
         $cartItem->delete();
 
-        return redirect()->back()->with('cart_message', 'Product removed from cart successfully!');
+        return back()->with('cart_message', 'Product removed from cart successfully!');
     }
 }

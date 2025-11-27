@@ -21,6 +21,7 @@ class OrderProductRepository extends Repository
     public static function storeByRequest(Request $request, $order, $product): OrderProduct
     {
         $totalPrice = $product->price * $product->quantity;
+
         return self::create([
             'product_id' => $product->product_id,
             'price' => $product->price,

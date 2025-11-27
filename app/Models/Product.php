@@ -27,8 +27,9 @@ class Product extends Model
         if ($this->media && Storage::exists($this->media->src)) {
             $url = Storage::url($this->media->src);
         }
+
         return Attribute::make(
-            get: fn() => $url
+            get: fn () => $url
         );
     }
 

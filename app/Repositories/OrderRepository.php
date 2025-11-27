@@ -30,7 +30,7 @@ class OrderRepository extends Repository
             'total_price' => $request->total_price,
             'payment_method' => PaymentMethodEnums::CASH->value,
             'payment_status' => PaymentStatusEnums::UNPAID->value,
-            'status' => OrderStatusEnums::PENDING->value
+            'status' => OrderStatusEnums::PENDING->value,
         ]);
     }
 }

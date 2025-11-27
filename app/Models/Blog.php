@@ -30,7 +30,7 @@ class Blog extends Model
         }
 
         return Attribute::make(
-            get: fn() => $url
+            get: fn () => $url
         );
     }
 
@@ -45,8 +45,9 @@ class Blog extends Model
         if ($this->secondMedia && Storage::exists($this->secondMedia->src)) {
             $url = Storage::url($this->secondMedia->src);
         }
+
         return Attribute::make(
-            get: fn() => $url
+            get: fn () => $url
         );
     }
 

@@ -22,6 +22,7 @@ class HeroSectionRequest extends FormRequest
     public function rules(): array
     {
         $thumbnail = $this->herosection ? 'nullable' : 'required';
+
         return [
             'header' => 'required|string|max:255',
             'first_title' => 'required|string|max:255',

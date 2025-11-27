@@ -23,14 +23,14 @@ class OrderRequest extends FormRequest
     {
         return [
             'first_name' => 'required',
-            'last_name'  => 'required',
-            'country'   => 'required',
+            'last_name' => 'required',
+            'country' => 'required',
             'address' => 'required',
-            'city'  => 'required',
-            'state'  => 'required',
+            'city' => 'required',
+            'state' => 'required',
             'postcode' => 'required',
-            'phone'  => 'required',
-            'email'  => 'required|email'
+            'phone' => 'required',
+            'email' => 'required|email',
         ];
     }
 }

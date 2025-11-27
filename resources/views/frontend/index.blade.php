@@ -2,7 +2,9 @@
 @section('content')
     <div class="container">
         <div class="wrapper">
+
             <!-- ------------------------hero section---------------------- -->
+
             <div class="row py-2 mb-5">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                 </div>
@@ -26,7 +28,10 @@
                 <div class="swiper-wrapper">
                     @foreach ($products as $product)
                         <div class="swiper-slide text-center position-relative">
-                            <img src="{{ asset($product?->thumbnail) }}" alt="{{ $product?->name }}" class="img-fluid mb-3">
+                            <a href="{{ route('shopDetails', $product->id) }}">
+                                <img src="{{ asset($product?->thumbnail) }}" alt="{{ $product?->name }}"
+                                    class="img-fluid mb-3">
+                            </a>
                             <h6 class="fw-bold bg-white title">{{ $product?->name }}</h6>
                         </div>
                     @endforeach
@@ -34,6 +39,7 @@
             </div>
 
             <!-- ------feature product------------------ -->
+
             <section class="featured-products-section">
                 <div class="text-center py-4">
                     <h1 class="heading fw-bold">Featured Product</h1>
@@ -68,13 +74,15 @@
                     @endforeach
                 </div>
             </section>
+
             <!-- ------------------------card section------------------- -->
+
             <div class="row my-5 pb-5">
-                @foreach ($cards as $card)
+                @foreach ($cards->reverse()->take(2) as $card)
                     <div class="col-6">
                         <div class="d-flex flex-column p-5 hero mt-4 justify-content-center"
                             style="background-image: url('{{ $card?->thumbnail }}'); background-size: cover; background-repeat: no-repeat; height: 50vh">
-                            <p class=" fw-bold mt-4 mb-2 para">{{ $card?->category->name }}</p>
+                            <h4 class=" fw-bold mt-4 mb-2 ">{{ $card?->category->name }}</h4>
                             <p class="para text-muted fw-bold">{{ $card?->offer }}</p>
                             <button class="btn-all text-white fw-bold py-2  color-bg mb-5">
                                 {{ $card?->btn_name }}
@@ -83,7 +91,8 @@
                     </div>
                 @endforeach
             </div>
-            <!-- --------------second carousel section----------------------------- -->
+
+            <!-- -------second carousel section--------------------- -->
             <div class="row mb-5">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="" prod-slider-container id="latest-products-container">
@@ -102,7 +111,9 @@
                                 <div class="prod-slider-column">
                                     @foreach ($products->reverse()->take(3) as $product)
                                         <div class="prod-slider-item">
-                                            <img src="{{ asset($product?->thumbnail) }}" alt="Latest 1">
+                                            <a href="{{ route('shopDetails', $product->id) }}">
+                                                <img src="{{ asset($product?->thumbnail) }}" alt="Latest 1">
+                                            </a>
                                             <div class="prod-details">
                                                 <p>{{ $product?->name }}</p>
                                                 <p class="prod-price">{{ $product?->price }}</p>
@@ -132,7 +143,9 @@
                                 <div class="prod-slider-column">
                                     @foreach ($topRatedProducts as $product)
                                         <div class="prod-slider-item">
-                                            <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            <a href="{{ route('shopDetails', $product->id) }}">
+                                                <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            </a>
                                             <div class="prod-details">
                                                 <p>{{ $product?->name }}</p>
                                                 <p class="prod-price">{{ $product?->price }}</p>
@@ -162,7 +175,9 @@
                                 <div class="prod-slider-column">
                                     @foreach ($products->take(3) as $product)
                                         <div class="prod-slider-item">
-                                            <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            <a href="{{ route('shopDetails', $product->id) }}">
+                                                <img src="{{ asset($product?->thumbnail) }}" alt="Review 1">
+                                            </a>
                                             <div class="prod-details">
                                                 <p>{{ $product?->name }}</p>
                                                 <p class="prod-price">{{ $product?->price }}</p>
@@ -174,9 +189,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+
             <!-- ------------------------------blog section-------------------- -->
+
             <div class="text-center py-4 mb-4">
                 <h1 class="heading fw-bold">From The Blog</h1>
                 <div class="underline mb-2"></div>

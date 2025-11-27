@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\ProductRequest;
-use App\Models\Blog;
 use App\Models\Product;
 use Arafat\LaravelRepository\Repository;
 use Illuminate\Http\Request;
@@ -20,6 +18,27 @@ class ProductRepository extends Repository
         return Product::class;
     }
 
+    public static function storeByRequest(Request $request): Product
+    {
+        $media = null;
+        if ($request->hasFile('thumbnail')) {
+            $media = MediaRepository::storeByRequest($request->thumbnail, 'product');
+        }
+
+        return self::create([
+            'name' => $request->name,
+            'category_id' => $request->category,
+            'price' => $request->price,
+            'discount_price' => $request->discount_price,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'additional_information' => $request->additional_information,
+            'weight' => $request->weight,
+            'media_id' => $media ? $media->id : null,
+        ]);
+        return $product;
+    }
+
     public static function updateByRequest(Request $request, Product $product)
     {
         $thumbnail = $product->Media;
@@ -31,7 +50,7 @@ class ProductRepository extends Repository
                 'image',
                 $thumbnail
             );
-        } elseif ($request->hasFile('thumbnail') && !$thumbnail) {
+        } elseif ($request->hasFile('thumbnail') && ! $thumbnail) {
             $thumbnail = MediaRepository::storeByRequest(
                 $request->file('thumbnail'),
                 'products',
@@ -50,5 +69,6 @@ class ProductRepository extends Repository
             'weight' => $request->weight,
             'thumbnail_id' => $thumbnail?->id ?? $product->thumbnail_id,
         ]);
+
     }
 }

@@ -7,7 +7,6 @@ use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Repositories\BlogRepository;
-use App\Repositories\MediaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,7 +32,6 @@ class BlogController extends Controller
 
         return to_route('admin.blog.index')->withSuccess('Blog created successfully!');
     }
-
 
     public function show(Blog $blog)
     {
@@ -87,7 +85,7 @@ class BlogController extends Controller
     public function socialLinkUpdate(Blog $blog, Request $request)
     {
         $blog->sicialLink()->updateOrCreate([
-            'blog_id' => $blog ? $blog->id : null
+            'blog_id' => $blog ? $blog->id : null,
 
         ], [
             'facebook' => $request->facebook,
@@ -96,7 +94,7 @@ class BlogController extends Controller
             'instagram' => $request->instagram,
             'whatsapp' => $request->whatsapp,
         ]);
+
         return to_route('admin.blog.index')->withSuccess('Social Link updated successfully!');
     }
-
 }

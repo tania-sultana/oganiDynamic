@@ -11,21 +11,23 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $contact = Contact::latest()->first();
+
         return view('admin.contact.index', compact('contact'));
     }
 
     public function update(Contact $contact, Request $request)
     {
-        Contact::updateOrCreate( [
-            'id' => $contact ? $contact->id : null
+        Contact::updateOrCreate([
+            'id' => $contact ? $contact->id : null,
         ],
             [
                 'email' => $request->email,
                 'address' => $request->address,
                 'phone' => $request->phone,
-                'time' => $request->time
-        ]
-            );
-            return back()->with('success', 'Contact updated successfully!');
+                'time' => $request->time,
+            ]
+        );
+
+        return back()->with('success', 'Contact updated successfully!');
     }
 }

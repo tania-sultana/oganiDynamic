@@ -31,7 +31,7 @@ class OrderBillingRepository extends Repository
             'postcode' => $request->postcode,
             'state' => $request->state,
             'phone' => $request->phone,
-            'email' => $request->email
+            'email' => $request->email,
         ]);
     }
 }

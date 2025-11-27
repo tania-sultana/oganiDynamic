@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
-
 class HeroSection extends Model
 {
     protected $table = 'hero_section';
+
     protected $fillable = [
         'header',
         'first_title',
@@ -21,11 +21,11 @@ class HeroSection extends Model
         'media_id',
     ];
 
-
     public function media()
     {
         return $this->belongsTo(Media::class);
     }
+
     public function thumbnail(): Attribute
     {
         $url = asset('assets/imgages/default.jpg');
@@ -34,9 +34,10 @@ class HeroSection extends Model
         }
 
         return Attribute::make(
-            get: fn() => $url
+            get: fn () => $url
         );
     }
+
     protected static function booted()
     {
         static::creating(function ($model) {

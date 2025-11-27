@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="">
-                            <a href="{{ route('checkOut') }}"
+                            <a href="{{ route('user.checkOut') }}"
                                 class="btn cart-btn text-white para fw-bold p-2 color-bg w-100">
                                 PROCEED TO CHECKOUT
                             </a>
