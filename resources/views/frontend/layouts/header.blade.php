@@ -33,7 +33,6 @@
                 </div>
             </div>
 
-
             <div class="dropdown">
                 <button class="btn  dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -44,7 +43,7 @@
                         <i class="fa-solid fa-user "></i>
                     @endif
                 </button>
-                
+
                 <ul class="dropdown-menu" aria-labelledby="accountDropdown">
                     <li><a class="dropdown-item" href="{{ route('login.create') }}">Login</a></li>
                     <li><a class="dropdown-item" href="{{ route('register.create') }}">Registration</a></li>

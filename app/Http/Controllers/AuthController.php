@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-// use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -19,16 +16,16 @@ class AuthController extends Controller
 
     public function storeRegister(RegisterRequest $request)
     {
-        // dd($request->all());
-
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
             'phone' => $request->phone,
             'password' => $request->password,
-
         ]);
+
+        $user->assignRole('user');
+
         return view('auth.login');
     }
 
@@ -43,13 +40,14 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             Auth::attempt(['email' => $request->emailo, 'password' => $request->password]);
+
+            /** @var App\Models\User */
             $user = Auth::user();
 
             if ($user->hasRole('admin')) {
-                return to_route('dashboard.index')->with('success', 'Login successful!');
+                return to_route('admin.dashboard')->with('success', 'Login successful!');
             }
 
-            // $request->session()->regenerate();
             return redirect('/')->with('success', 'Login successful!');
         }
 
@@ -57,9 +55,11 @@ class AuthController extends Controller
             'email' => 'Invalid email or password.',
         ])->onlyInput('email');
     }
+
     public function logout()
     {
         Auth::logout();
+
         return redirect('/');
     }
 }
